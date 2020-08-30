@@ -1,0 +1,87 @@
+﻿@page "/fault/create"
+@inject HttpClient http
+@inject HttpClient client
+@inject NavigationManager uriHelper
+@inject IJSRuntime js
+
+<h3>Arıza Kayıt Formu</h3>
+
+<EditForm Model="@fault">
+    <DataAnnotationsValidator />
+
+    <div>
+
+        <div>
+            <div>
+                <div rows="5">
+                    <label>Bölüm : </label>
+                </div>
+                <div float="left">
+                    <InputSelect @bind-Value="@fault.MakinaGrubu">
+                        <option value="">Bölüm1</option>
+                        <option value="Bölüm1">Bölüm1</option>
+                    </InputSelect>
+                    <ValidationMessage For="@(() => fault.MakinaGrubu)" />
+                </div>
+            </div>
+        </div>
+        <div>
+            <div>
+                <div rows="5">
+                    <label>Makina : </label>
+                </div>
+                <div float="left">
+                    <InputSelect @bind-Value="@fault.Makina">
+                        <option value="">Makine1</option>
+                        <option value="Makine1">Makine1</option>
+                    </InputSelect>
+                    <ValidationMessage For="@(() => fault.Makina)" />
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div>
+                <div rows="5">
+                    <label>Makina : </label>
+                </div>
+                <div float="left">
+                    <InputText @bind-Value="@fault.Operator">
+                        <option value="Makine1">Makine1</option>
+                    </InputText>
+                    <ValidationMessage For="@(() => fault.Operator)" />
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div rows="5">
+                <label>Açıklama :</label>
+
+            </div>
+            <div float="left">
+                <InputTextArea @bind-Value="@fault.Description" rows="7" cols="33" />
+                <ValidationMessage For="@(() => fault.Description)" />
+
+            </div>
+        </div>
+
+
+        <button type="submit" class="btn btn-success" @onclick="(() => CreateFault())">
+            Kaydet
+        </button>
+    </div>
+
+
+
+</EditForm>
+
+
+@code {
+    [Parameter] public BlazorApp4.Shared.Models.Fault fault { get; set; } = new BlazorApp4.Shared.Models.Fault();
+    async Task CreateFault()
+    {
+        await http.PostAsJsonAsync("api/fault", fault);
+        //uriHelper.NavigateTo("employee");
+    }
+}

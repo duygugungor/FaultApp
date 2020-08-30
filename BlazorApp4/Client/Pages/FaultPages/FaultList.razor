@@ -1,0 +1,56 @@
+﻿@page "/fault"
+@inject HttpClient http
+@inject HttpClient client
+@inject NavigationManager uriHelper
+@inject IJSRuntime js
+
+<h3>FaultList</h3>
+
+<br>
+
+@if (faultList == null)
+{
+    <text>Yükleniyor...</text>
+}
+else if (faultList.Count == 0)
+{
+    <text>Kayıt bulunamadı.</text>
+}
+else
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Bölüm</th>
+                <th>Makina</th>
+                <th>Operatör</th>
+                <th>Açıklama</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (BlazorApp4.Shared.Models.Fault faul in faultList)
+            {
+                <tr>
+                    <td>@faul.MakinaGrubu</td>
+                    <td>@faul.Makina</td>
+                    <td>@faul.Operator</td>
+                    
+                    <td>@faul.Description</td>
+                    @*<td>
+                        <a class="btn btn-success" href="/FaultListForm/@faul.Id">Edit</a>
+                        <button class="btn btn-danger" @onclick="@(() => Delete(faul.Id))">Delete</button>
+                    </td>*@
+                </tr>
+            }
+
+        </tbody>
+    </table>
+}
+@code {
+    List<BlazorApp4.Shared.Models.Fault> faultList { get; set; }
+    protected override async Task OnInitializedAsync()
+    {
+        faultList = await client.GetFromJsonAsync<List<BlazorApp4.Shared.Models.Fault>>("api/fault");
+    }
+}
