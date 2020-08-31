@@ -1,7 +1,7 @@
 {
   "FilesToCompress": [
     {
-      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\aj5foGg00iEYrTlmiCXm1HvOJcePrAa2e3P04mwPEXM=.hash",
+      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\TBLRkg1QFtXc2EVU9U6iCFmnwy_Bt5SguusOkGr0wpA=.hash",
       "Source": "C:\\Users\\Duygu GÜNGÖR\\source\\repos\\BlazorApp4\\BlazorApp4\\Client\\obj\\Debug\\netstandard2.1\\blazor\\unlinked\\BlazorApp4.Client.dll",
       "Target": "obj\\Debug\\netstandard2.1\\compressed\\_framework\/_bin\/BlazorApp4.Client.dll.br"
     },
@@ -161,14 +161,9 @@
       "Target": "obj\\Debug\\netstandard2.1\\compressed\\_framework\/_bin\/Microsoft.Extensions.DependencyInjection.Abstractions.dll.br"
     },
     {
-      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\bSgsT2x5xMvs8mara5wU_EJwcyHa9GVMU85HwhWcdWM=.hash",
-      "Source": "C:\\Users\\Duygu GÜNGÖR\\source\\repos\\BlazorApp4\\BlazorApp4\\Client\\obj\\Debug\\netstandard2.1\\blazor\\unlinked\\Microsoft.AspNetCore.Components.Web.dll",
-      "Target": "obj\\Debug\\netstandard2.1\\compressed\\_framework\/_bin\/Microsoft.AspNetCore.Components.Web.dll.br"
-    },
-    {
-      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\m7Q_cF5-ji3OMfdGlCuE8pQ-iM_kxNHLq-IEWVvIaOg=.hash",
-      "Source": "C:\\Users\\Duygu GÜNGÖR\\source\\repos\\BlazorApp4\\BlazorApp4\\Client\\obj\\Debug\\netstandard2.1\\blazor\\unlinked\\Microsoft.AspNetCore.Components.Forms.dll",
-      "Target": "obj\\Debug\\netstandard2.1\\compressed\\_framework\/_bin\/Microsoft.AspNetCore.Components.Forms.dll.br"
+      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\2quVwn0qYIpeYL5QJwoS4zClxfiYPKyaiN9iw-uk5ZI=.hash",
+      "Source": "C:\\Users\\Duygu GÜNGÖR\\source\\repos\\BlazorApp4\\BlazorApp4\\Client\\obj\\Debug\\netstandard2.1\\blazor\\unlinked\\Radzen.Blazor.dll",
+      "Target": "obj\\Debug\\netstandard2.1\\compressed\\_framework\/_bin\/Radzen.Blazor.dll.br"
     },
     {
       "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\tmnkCmP9OzLUkpQ3LP7PRosi7gt5pyfEZCM6aqAokFI=.hash",
@@ -179,6 +174,36 @@
       "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\LIfCYwg_PHltTK4z3EnbSkA7m2cn8JS4jHVthdKrDF8=.hash",
       "Source": "C:\\Users\\Duygu GÜNGÖR\\source\\repos\\BlazorApp4\\BlazorApp4\\Client\\obj\\Debug\\netstandard2.1\\blazor\\unlinked\\System.ComponentModel.DataAnnotations.dll",
       "Target": "obj\\Debug\\netstandard2.1\\compressed\\_framework\/_bin\/System.ComponentModel.DataAnnotations.dll.br"
+    },
+    {
+      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\ubyINHXDmWOAugBDEb8CCz_uV68eordXiYDxpUeRBvg=.hash",
+      "Source": "C:\\Users\\Duygu GÜNGÖR\\source\\repos\\BlazorApp4\\BlazorApp4\\Client\\obj\\Debug\\netstandard2.1\\blazor\\unlinked\\Microsoft.CSharp.dll",
+      "Target": "obj\\Debug\\netstandard2.1\\compressed\\_framework\/_bin\/Microsoft.CSharp.dll.br"
+    },
+    {
+      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\aHqvd-TLf-ZZOpXlafzNNthD2HjPJLadm9zDFZWm39k=.hash",
+      "Source": "C:\\Users\\Duygu GÜNGÖR\\source\\repos\\BlazorApp4\\BlazorApp4\\Client\\obj\\Debug\\netstandard2.1\\blazor\\unlinked\\System.Linq.Dynamic.Core.dll",
+      "Target": "obj\\Debug\\netstandard2.1\\compressed\\_framework\/_bin\/System.Linq.Dynamic.Core.dll.br"
+    },
+    {
+      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\yTznKFXYjwtGYUGUdxYEw8gA1A_IWlMYOncOmAAyJas=.hash",
+      "Source": "C:\\Users\\Duygu GÜNGÖR\\source\\repos\\BlazorApp4\\BlazorApp4\\Client\\obj\\Debug\\netstandard2.1\\blazor\\unlinked\\System.Reflection.Emit.ILGeneration.dll",
+      "Target": "obj\\Debug\\netstandard2.1\\compressed\\_framework\/_bin\/System.Reflection.Emit.ILGeneration.dll.br"
+    },
+    {
+      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\4A297N6Xf0UZNMTrY_4COe43Hmcrtxb-eTiqTJ5M6wA=.hash",
+      "Source": "C:\\Users\\Duygu GÜNGÖR\\source\\repos\\BlazorApp4\\BlazorApp4\\Client\\obj\\Debug\\netstandard2.1\\blazor\\unlinked\\System.Reflection.Emit.dll",
+      "Target": "obj\\Debug\\netstandard2.1\\compressed\\_framework\/_bin\/System.Reflection.Emit.dll.br"
+    },
+    {
+      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\bSgsT2x5xMvs8mara5wU_EJwcyHa9GVMU85HwhWcdWM=.hash",
+      "Source": "C:\\Users\\Duygu GÜNGÖR\\source\\repos\\BlazorApp4\\BlazorApp4\\Client\\obj\\Debug\\netstandard2.1\\blazor\\unlinked\\Microsoft.AspNetCore.Components.Web.dll",
+      "Target": "obj\\Debug\\netstandard2.1\\compressed\\_framework\/_bin\/Microsoft.AspNetCore.Components.Web.dll.br"
+    },
+    {
+      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\m7Q_cF5-ji3OMfdGlCuE8pQ-iM_kxNHLq-IEWVvIaOg=.hash",
+      "Source": "C:\\Users\\Duygu GÜNGÖR\\source\\repos\\BlazorApp4\\BlazorApp4\\Client\\obj\\Debug\\netstandard2.1\\blazor\\unlinked\\Microsoft.AspNetCore.Components.Forms.dll",
+      "Target": "obj\\Debug\\netstandard2.1\\compressed\\_framework\/_bin\/Microsoft.AspNetCore.Components.Forms.dll.br"
     },
     {
       "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\PEg9ghiKSWBTX0jq8pFDvv2Yvw92Y8W0ELtWrSE4fhA=.hash",
@@ -196,7 +221,7 @@
       "Target": "obj\\Debug\\netstandard2.1\\compressed\\_framework\/_bin\/Microsoft.JSInterop.dll.br"
     },
     {
-      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\dRe31_ctWsMRVZ6gxJz3jP-1fU0fY5fP-MTYhAzGtJw=.hash",
+      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\6qOCcuur0quqGMY9Kpsmv5VMzKbDKQP5zFf57xpO9mA=.hash",
       "Source": "C:\\Users\\Duygu GÜNGÖR\\source\\repos\\BlazorApp4\\BlazorApp4\\Client\\obj\\Debug\\netstandard2.1\\blazor\\unlinked\\BlazorApp4.Shared.dll",
       "Target": "obj\\Debug\\netstandard2.1\\compressed\\_framework\/_bin\/BlazorApp4.Shared.dll.br"
     },
@@ -266,12 +291,17 @@
       "Target": "obj\\Debug\\netstandard2.1\\compressed\\_framework\/_bin\/Microsoft.JSInterop.WebAssembly.dll.br"
     },
     {
-      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\ygxomGng-vyeLjyXq1-obTAjLXl5S-Ufp0gv1Mj8cx0=.hash",
+      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\8pybPHj9QxdWLu4W0InDWM5wB9n-U1s0JO5hl2YqUJM=.hash",
       "Source": "C:\\Users\\Duygu GÜNGÖR\\source\\repos\\BlazorApp4\\BlazorApp4\\Client\\obj\\Debug\\netstandard2.1\\blazor\\unlinked\\BlazorApp4.Client.pdb",
       "Target": "obj\\Debug\\netstandard2.1\\compressed\\_framework\/_bin\/BlazorApp4.Client.pdb.br"
     },
     {
-      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\KR-jRZkuv6gBypH-QdKNGf3GtX0RlP1UxjStT5heWUY=.hash",
+      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\TUdNbGDz_ogqJea4nbn9e5NAJa8g20Wv3as0sLQ8J_o=.hash",
+      "Source": "C:\\Users\\Duygu GÜNGÖR\\source\\repos\\BlazorApp4\\BlazorApp4\\Client\\obj\\Debug\\netstandard2.1\\blazor\\unlinked\\System.Linq.Dynamic.Core.pdb",
+      "Target": "obj\\Debug\\netstandard2.1\\compressed\\_framework\/_bin\/System.Linq.Dynamic.Core.pdb.br"
+    },
+    {
+      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\vZ_twvxKqT2PDmBBSTHs93zKDOEUnjuiyDVNIj9T84Y=.hash",
       "Source": "C:\\Users\\Duygu GÜNGÖR\\source\\repos\\BlazorApp4\\BlazorApp4\\Client\\obj\\Debug\\netstandard2.1\\blazor\\unlinked\\BlazorApp4.Shared.pdb",
       "Target": "obj\\Debug\\netstandard2.1\\compressed\\_framework\/_bin\/BlazorApp4.Shared.pdb.br"
     },
@@ -296,12 +326,12 @@
       "Target": "obj\\Debug\\netstandard2.1\\compressed\\_framework\/blazor.webassembly.js.br"
     },
     {
-      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\VrpEJ1em7BSSjY7xPI-g9cZClut0DC38S3oM7m1n8j8=.hash",
+      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\bKwZ_5DmywBKG-WQulSYQD4plsi6LYDew_HqY5lWgwA=.hash",
       "Source": "C:\\Users\\Duygu GÜNGÖR\\source\\repos\\BlazorApp4\\BlazorApp4\\Client\\obj\\Debug\\netstandard2.1\\blazor\\blazor.boot.json",
       "Target": "obj\\Debug\\netstandard2.1\\compressed\\_framework\/blazor.boot.json.br"
     },
     {
-      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\NaaJQNOQQzvucwaYG6QLWek79cSNOyi5nzF-rSvBdqw=.hash",
+      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\OPFcRd5rx8duhvBL1KnIkFYXQrebaZVgu327R4S4Juw=.hash",
       "Source": "C:\\Users\\Duygu GÜNGÖR\\source\\repos\\BlazorApp4\\BlazorApp4\\Client\\obj\\Debug\\netstandard2.1\\blazor\\service-worker-assets.js",
       "Target": "obj\\Debug\\netstandard2.1\\compressed\\service-worker-assets.js.br"
     }

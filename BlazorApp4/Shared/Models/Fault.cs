@@ -17,8 +17,10 @@ namespace BlazorApp4.Shared.Models
         //public DateTime Tarih { get; set; }
         public string Description { get; set; }
         public DateTime CreatedTime { get; set; } = DateTime.Now;
-        public DateTime FixedTime { get; set; }
+        public DateTime FixedTime { get; set; } = DateTime.Now;
         public string FixDescription { get; set; }
         public string FixBy { get; set; }
+
+        public FaultStatus Status { get; set; } = FaultStatus.REPORTED;
     }
 }

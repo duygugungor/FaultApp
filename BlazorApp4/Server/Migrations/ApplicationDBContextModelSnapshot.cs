@@ -50,6 +50,9 @@ namespace BlazorApp4.Server.Migrations
                     b.Property<string>("Operator")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.ToTable("Faults");

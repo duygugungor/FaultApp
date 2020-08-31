@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace BlazorApp4.Server.Migrations
 {
-    public partial class removedTarih : Migration
+    public partial class addedStatus : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -20,7 +20,8 @@ namespace BlazorApp4.Server.Migrations
                     CreatedTime = table.Column<DateTime>(nullable: false),
                     FixedTime = table.Column<DateTime>(nullable: false),
                     FixDescription = table.Column<string>(nullable: true),
-                    FixBy = table.Column<string>(nullable: true)
+                    FixBy = table.Column<string>(nullable: true),
+                    Status = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {

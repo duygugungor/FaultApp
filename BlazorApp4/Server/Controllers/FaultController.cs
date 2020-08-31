@@ -43,6 +43,26 @@ namespace BlazorApp4.Server.Controllers
             return Ok(fault);
         }
 
+        [HttpGet]
+        [Route("query")] // <- no route parameters specified
+        public IActionResult GetByCoordinates([FromQuery] DateTime after,
+                                              [FromQuery] DateTime before)
+        {
+            // will be matched by e.g.
+            // /api/1.0/availabilities?xCoordinate=34.3444&yCoordinate=66.3422
+
+            //var _fault = new Fault();
+            var _faults = new List<Fault>();
+            //_fault = _context.Faults.Where(p => p.Id == 1).SingleOrDefault();
+            _faults = _context.Faults.Where(p => DateTime.Compare(p.CreatedTime, after) > 0 && DateTime.Compare(p.CreatedTime, before) < 0).ToList();
+            //_context.Entry(_fault).State = EntityState.Added;
+            //_context.Entry(_fault).State = EntityState.Modified;
+            //_context.Entry(_fault).State = EntityState.Deleted;
+            //_context.SaveChanges();
+            return Ok(_faults);
+
+        }
+
         private DbSet<Fault> GetFaults()
         {
             return _context.Faults;

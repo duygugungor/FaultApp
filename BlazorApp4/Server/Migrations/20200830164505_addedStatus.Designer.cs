@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BlazorApp4.Server.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    [Migration("20200830151003_removedTarih")]
-    partial class removedTarih
+    [Migration("20200830164505_addedStatus")]
+    partial class addedStatus
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -51,6 +51,9 @@ namespace BlazorApp4.Server.Migrations
 
                     b.Property<string>("Operator")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 

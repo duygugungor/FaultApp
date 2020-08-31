@@ -1,0 +1,75 @@
+﻿@page  "/fault/edit/{faultId:int}"
+@inject HttpClient http
+@inject NavigationManager uriHelper
+@inject IJSRuntime js
+<h3>FaultFixed</h3>
+
+
+<EditForm Model="@fault" >
+    <DataAnnotationsValidator />
+
+    <div>
+
+        <div>
+            <div>
+                <label>Kullanıcı Adı</label>
+            </div>
+            <InputText @bind-Value="@fault.FixBy">
+                @*<option value="">Lütfen Adınızı Giriniz...</option>*@
+            </InputText>
+        </div>
+        <div>
+            <div>
+                <label>Yapılan İşlemler</label>
+            </div>
+            <InputTextArea @bind-Value="@fault.FixDescription" rows="7" cols="33" />
+            @*<option value="">Lütfen Açıklama Giriniz...</option>*@
+        </div>
+        <div>
+            <div>
+                <label>Tarih</label>
+
+            </div>
+
+            <InputDate @bind-Value="@fault.FixedTime">
+            </InputDate>
+            
+        </div>
+        <hr />
+                <button type="submit" class="btn btn-success" @onclick="(()=> EditFault())">
+                 @ButtonText
+                </button>
+   </div>
+
+</EditForm>
+
+
+
+@code {
+    [Parameter] public string ButtonText { get; set; } = "Kaydet";
+    [Parameter] public EventCallback OnValidSubmit { get; set; }
+
+
+    [Parameter] public BlazorApp4.Shared.Models.Fault fault { get; set; } = new BlazorApp4.Shared.Models.Fault();
+    [Parameter] public int faultId { get; set; }
+    List<BlazorApp4.Shared.Models.Fault> faultList { get; set; }
+
+
+    protected async override Task OnParametersSetAsync()
+    {
+        faultList = await http.GetFromJsonAsync<List<BlazorApp4.Shared.Models.Fault>>($"api/fault/edit/{faultId}");
+
+
+    }
+
+    async Task EditFault()
+    {
+        await http.PutAsJsonAsync("api/fault",fault);
+        await js.InvokeVoidAsync("alert", $"Updated Successfully!");
+        uriHelper.NavigateTo("fault");
+    }
+
+
+
+    }
+

@@ -24,33 +24,65 @@ else
                 <th>Bölüm</th>
                 <th>Makina</th>
                 <th>Operatör</th>
+                <th>Tarih</th>
                 <th>Açıklama</th>
-                <th></th>
+                @*<th>Durum</th>*@
             </tr>
         </thead>
         <tbody>
             @foreach (BlazorApp4.Shared.Models.Fault faul in faultList)
             {
-                <tr>
-                    <td>@faul.MakinaGrubu</td>
-                    <td>@faul.Makina</td>
-                    <td>@faul.Operator</td>
-                    
-                    <td>@faul.Description</td>
-                    @*<td>
-                        <a class="btn btn-success" href="/FaultListForm/@faul.Id">Edit</a>
-                        <button class="btn btn-danger" @onclick="@(() => Delete(faul.Id))">Delete</button>
-                    </td>*@
-                </tr>
+            <tr>
+                <td>@faul.MakinaGrubu</td>
+                <td>@faul.Makina</td>
+                <td>@faul.Operator</td>
+                <td>@faul.CreatedTime</td>
+                <td>@faul.Description</td>
+                @*<td>@statusLabel(@faul.Status.ToString())</td>*@
+                <td>
+                    <a class="btn btn-success" href="fault/edit/@faul.Id">Bitir</a>  
+                </td>
+                @*<td>
+            <a class="btn btn-success" href="fault/edit/@faul.Id">Edit</a>
+        </td>*@
+            </tr>
             }
 
         </tbody>
     </table>
 }
 @code {
+
+
+
+    //protected override async Task OnInitializedAsync()
+    //{
+    //    faults = await client.GetFromJsonAsync<FaultList[]>("api/fault");
+    //}
+
     List<BlazorApp4.Shared.Models.Fault> faultList { get; set; }
     protected override async Task OnInitializedAsync()
     {
         faultList = await client.GetFromJsonAsync<List<BlazorApp4.Shared.Models.Fault>>("api/fault");
+
+
     }
+
+    public String statusLabel(String text)
+    {
+        if(text == "REPORTED")
+        {
+            return "RAPOR EDİLDİ";
+        } else if (text == "FIXING")
+        {
+            return "TAMİR EDİLİYOR";
+        } else if ( text == "FIXED")
+        {
+            return "TAMİR EDİLDİ";
+        } else
+        {
+            return " - ";
+        }
+    }
+
 }

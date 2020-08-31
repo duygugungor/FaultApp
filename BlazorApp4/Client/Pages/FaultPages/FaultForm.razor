@@ -17,10 +17,13 @@
                     <label>Bölüm : </label>
                 </div>
                 <div float="left">
-                    <InputSelect @bind-Value="@fault.MakinaGrubu">
-                        <option value="">Bölüm1</option>
-                        <option value="Bölüm1">Bölüm1</option>
-                    </InputSelect>
+                    <select value="@fault.MakinaGrubu"  @onchange="@DoStuff">
+                        <option value="">Lütfen Seçiniz</option>
+                        @foreach (var item in machineList.Keys)
+                        {
+                            <option value="@item">@item</option>
+                        }
+                    </select>
                     <ValidationMessage For="@(() => fault.MakinaGrubu)" />
                 </div>
             </div>
@@ -32,8 +35,12 @@
                 </div>
                 <div float="left">
                     <InputSelect @bind-Value="@fault.Makina">
-                        <option value="">Makine1</option>
-                        <option value="Makine1">Makine1</option>
+                        <option value="">Lütfen Seçiniz</option>
+                        @foreach (var item in makina)
+                        {
+
+                            <option value="@item">@item</option>
+                        }
                     </InputSelect>
                     <ValidationMessage For="@(() => fault.Makina)" />
                 </div>
@@ -47,7 +54,7 @@
                 </div>
                 <div float="left">
                     <InputText @bind-Value="@fault.Operator">
-                        <option value="Makine1">Makine1</option>
+                        <option value="Makine1">Operatör</option>
                     </InputText>
                     <ValidationMessage For="@(() => fault.Operator)" />
                 </div>
@@ -81,7 +88,25 @@
     [Parameter] public BlazorApp4.Shared.Models.Fault fault { get; set; } = new BlazorApp4.Shared.Models.Fault();
     async Task CreateFault()
     {
-        await http.PostAsJsonAsync("api/fault", fault);
+        await client.PostAsJsonAsync("api/fault", fault);
         //uriHelper.NavigateTo("employee");
+    }
+
+    Dictionary<String, List<String>> machineList {get; set; } =
+    new Dictionary<String, List<String>>()
+    {
+            { "EFEKT",  new List<string>() { "EFEKT-1", "EFEKT-2", "EFEKT-3", "EFEKT-4" } },
+             { "RAM",  new List<string>() { "RAM-1", "RAM-2", "RAM-3", "RAM-4" } }
+    };
+
+    public List<String> makina { get; set; } = new List<String>() { "Liste Yüklenemedi" };
+
+    public void DoStuff(ChangeEventArgs e)
+    {
+        var kafamdakiMakina = e.Value.ToString();
+        fault.MakinaGrubu = kafamdakiMakina;
+       // Console.WriteLine("It is definitely: " + kafamdakiMakina);
+        makina = machineList.ContainsKey(kafamdakiMakina) ? machineList[kafamdakiMakina] : new List<String>() { "Liste Yüklenemedi" };
+
     }
 }
