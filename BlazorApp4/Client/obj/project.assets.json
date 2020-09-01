@@ -62,6 +62,26 @@
           "lib/netstandard2.1/Blazorise.Icons.FontAwesome.dll": {}
         }
       },
+      "Blazorise.Sidebar/0.9.1.2": {
+        "type": "package",
+        "dependencies": {
+          "Blazorise": "0.9.1.2",
+          "Microsoft.AspNetCore.Components": "3.1.6",
+          "Microsoft.AspNetCore.Components.Web": "3.1.6"
+        },
+        "compile": {
+          "lib/netstandard2.1/Blazorise.Sidebar.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/Blazorise.Sidebar.dll": {}
+        },
+        "build": {
+          "buildTransitive/Blazorise.Sidebar.props": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/Blazorise.Sidebar.props": {}
+        }
+      },
       "bootstrap/4.5.2": {
         "type": "package",
         "dependencies": {
@@ -968,6 +988,25 @@
         "blazorise.icons.fontawesome.0.9.1.2.nupkg.sha512",
         "blazorise.icons.fontawesome.nuspec",
         "lib/netstandard2.1/Blazorise.Icons.FontAwesome.dll"
+      ]
+    },
+    "Blazorise.Sidebar/0.9.1.2": {
+      "sha512": "KUiOKNo/qJ86HlIb8LeYTv9I5zh4ghkKGi/nPmHP0dx37FthG6xFOI2xhK/9UfvA/Yoy+b2BbaNnnr8IEZ3paQ==",
+      "type": "package",
+      "path": "blazorise.sidebar/0.9.1.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Blazorise.png",
+        "LICENSE.md",
+        "blazorise.sidebar.0.9.1.2.nupkg.sha512",
+        "blazorise.sidebar.nuspec",
+        "build/Blazorise.Sidebar.props",
+        "build/Microsoft.AspNetCore.StaticWebAssets.props",
+        "buildMultiTargeting/Blazorise.Sidebar.props",
+        "buildTransitive/Blazorise.Sidebar.props",
+        "lib/netstandard2.1/Blazorise.Sidebar.dll",
+        "staticwebassets/blazorise.sidebar.css"
       ]
     },
     "bootstrap/4.5.2": {
@@ -3237,6 +3276,7 @@
       "BlazorApp4.Shared >= 1.0.0",
       "Blazorise.Bootstrap >= 0.9.1.2",
       "Blazorise.Icons.FontAwesome >= 0.9.1.2",
+      "Blazorise.Sidebar >= 0.9.1.2",
       "Microsoft.AspNetCore.Components.WebAssembly >= 3.2.1",
       "Microsoft.AspNetCore.Components.WebAssembly.Build >= 3.2.1",
       "Microsoft.AspNetCore.Components.WebAssembly.DevServer >= 3.2.1",
@@ -3296,6 +3336,10 @@
             "version": "[0.9.1.2, )"
           },
           "Blazorise.Icons.FontAwesome": {
+            "target": "Package",
+            "version": "[0.9.1.2, )"
+          },
+          "Blazorise.Sidebar": {
             "target": "Package",
             "version": "[0.9.1.2, )"
           },

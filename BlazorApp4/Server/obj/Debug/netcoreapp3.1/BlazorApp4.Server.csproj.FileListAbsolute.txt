@@ -163,6 +163,10 @@ C:\Users\Duygu GÜNGÖR\source\repos\BlazorApp4\BlazorApp4\Server\bin\Debug\netc
 C:\Users\Duygu GÜNGÖR\source\repos\BlazorApp4\BlazorApp4\Server\bin\Debug\netcoreapp3.1\BlazorApp4.Server.pdb
 C:\Users\Duygu GÜNGÖR\source\repos\BlazorApp4\BlazorApp4\Server\bin\Debug\netcoreapp3.1\BlazorApp4.Server.Views.dll
 C:\Users\Duygu GÜNGÖR\source\repos\BlazorApp4\BlazorApp4\Server\bin\Debug\netcoreapp3.1\BlazorApp4.Server.Views.pdb
+C:\Users\Duygu GÜNGÖR\source\repos\BlazorApp4\BlazorApp4\Server\bin\Debug\netcoreapp3.1\Blazorise.dll
+C:\Users\Duygu GÜNGÖR\source\repos\BlazorApp4\BlazorApp4\Server\bin\Debug\netcoreapp3.1\Blazorise.Bootstrap.dll
+C:\Users\Duygu GÜNGÖR\source\repos\BlazorApp4\BlazorApp4\Server\bin\Debug\netcoreapp3.1\Blazorise.Icons.FontAwesome.dll
+C:\Users\Duygu GÜNGÖR\source\repos\BlazorApp4\BlazorApp4\Server\bin\Debug\netcoreapp3.1\Blazorise.Sidebar.dll
 C:\Users\Duygu GÜNGÖR\source\repos\BlazorApp4\BlazorApp4\Server\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authorization.dll
 C:\Users\Duygu GÜNGÖR\source\repos\BlazorApp4\BlazorApp4\Server\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Components.dll
 C:\Users\Duygu GÜNGÖR\source\repos\BlazorApp4\BlazorApp4\Server\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Components.Forms.dll
@@ -235,6 +239,8 @@ C:\Users\Duygu GÜNGÖR\source\repos\BlazorApp4\BlazorApp4\Server\bin\Debug\netc
 C:\Users\Duygu GÜNGÖR\source\repos\BlazorApp4\BlazorApp4\Server\obj\Debug\netcoreapp3.1\BlazorApp4.Server.csprojAssemblyReference.cache
 C:\Users\Duygu GÜNGÖR\source\repos\BlazorApp4\BlazorApp4\Server\obj\Debug\netcoreapp3.1\BlazorApp4.Server.AssemblyInfoInputs.cache
 C:\Users\Duygu GÜNGÖR\source\repos\BlazorApp4\BlazorApp4\Server\obj\Debug\netcoreapp3.1\BlazorApp4.Server.AssemblyInfo.cs
+C:\Users\Duygu GÜNGÖR\source\repos\BlazorApp4\BlazorApp4\Server\obj\Debug\netcoreapp3.1\BlazorApp4.Server.csproj.CoreCompileInputs.cache
+C:\Users\Duygu GÜNGÖR\source\repos\BlazorApp4\BlazorApp4\Server\obj\Debug\netcoreapp3.1\BlazorApp4.Server.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Duygu GÜNGÖR\source\repos\BlazorApp4\BlazorApp4\Server\obj\Debug\netcoreapp3.1\BlazorApp4.Server.RazorAssemblyInfo.cache
 C:\Users\Duygu GÜNGÖR\source\repos\BlazorApp4\BlazorApp4\Server\obj\Debug\netcoreapp3.1\BlazorApp4.Server.RazorAssemblyInfo.cs
 C:\Users\Duygu GÜNGÖR\source\repos\BlazorApp4\BlazorApp4\Server\obj\Debug\netcoreapp3.1\BlazorApp4.Server.TagHelpers.input.cache
@@ -251,8 +257,3 @@ C:\Users\Duygu GÜNGÖR\source\repos\BlazorApp4\BlazorApp4\Server\obj\Debug\netc
 C:\Users\Duygu GÜNGÖR\source\repos\BlazorApp4\BlazorApp4\Server\obj\Debug\netcoreapp3.1\BlazorApp4.Server.dll
 C:\Users\Duygu GÜNGÖR\source\repos\BlazorApp4\BlazorApp4\Server\obj\Debug\netcoreapp3.1\BlazorApp4.Server.pdb
 C:\Users\Duygu GÜNGÖR\source\repos\BlazorApp4\BlazorApp4\Server\obj\Debug\netcoreapp3.1\BlazorApp4.Server.genruntimeconfig.cache
-C:\Users\Duygu GÜNGÖR\source\repos\BlazorApp4\BlazorApp4\Server\obj\Debug\netcoreapp3.1\BlazorApp4.Server.csproj.CoreCompileInputs.cache
-C:\Users\Duygu GÜNGÖR\source\repos\BlazorApp4\BlazorApp4\Server\obj\Debug\netcoreapp3.1\BlazorApp4.Server.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\Duygu GÜNGÖR\source\repos\BlazorApp4\BlazorApp4\Server\bin\Debug\netcoreapp3.1\Blazorise.dll
-C:\Users\Duygu GÜNGÖR\source\repos\BlazorApp4\BlazorApp4\Server\bin\Debug\netcoreapp3.1\Blazorise.Bootstrap.dll
-C:\Users\Duygu GÜNGÖR\source\repos\BlazorApp4\BlazorApp4\Server\bin\Debug\netcoreapp3.1\Blazorise.Icons.FontAwesome.dll

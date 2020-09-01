@@ -46,6 +46,7 @@ obj\Debug\netstandard2.1\blazor\unlinked\System.Linq.Dynamic.Core.dll
 obj\Debug\netstandard2.1\blazor\unlinked\System.Reflection.Emit.ILGeneration.dll
 obj\Debug\netstandard2.1\blazor\unlinked\System.Reflection.Emit.dll
 obj\Debug\netstandard2.1\blazor\unlinked\BlazorApp4.Shared.dll
+obj\Debug\netstandard2.1\blazor\unlinked\Blazorise.Sidebar.dll
 obj\Debug\netstandard2.1\blazor\unlinked\Microsoft.AspNetCore.Components.WebAssembly.dll
 obj\Debug\netstandard2.1\blazor\unlinked\Microsoft.Extensions.DependencyInjection.dll
 obj\Debug\netstandard2.1\blazor\unlinked\Microsoft.Extensions.Primitives.dll

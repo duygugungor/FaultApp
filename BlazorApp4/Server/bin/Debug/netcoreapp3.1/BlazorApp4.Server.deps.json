@@ -348,6 +348,22 @@
           "lib/netstandard2.1/Blazorise.Icons.FontAwesome.dll": {}
         }
       },
+      "Blazorise.Sidebar/0.9.1.2": {
+        "dependencies": {
+          "Blazorise": "0.9.1.2",
+          "Microsoft.AspNetCore.Components": "3.1.6",
+          "Microsoft.AspNetCore.Components.Web": "3.1.6"
+        },
+        "runtime": {
+          "lib/netstandard2.1/Blazorise.Sidebar.dll": {
+            "assemblyVersion": "0.9.1.2",
+            "fileVersion": "0.9.1.2"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.1/Blazorise.Sidebar.dll": {}
+        }
+      },
       "bootstrap/4.5.2": {
         "dependencies": {
           "jQuery": "3.0.0",
@@ -2040,6 +2056,7 @@
           "BlazorApp4.Shared": "1.0.0",
           "Blazorise.Bootstrap": "0.9.1.2",
           "Blazorise.Icons.FontAwesome": "0.9.1.2",
+          "Blazorise.Sidebar": "0.9.1.2",
           "Microsoft.AspNetCore.Components.WebAssembly": "3.2.1",
           "Radzen.Blazor": "2.11.14",
           "System.Net.Http.Json": "3.2.1",
@@ -3611,6 +3628,13 @@
       "sha512": "sha512-guN/PhenRzAcBRKVT3yQ/RxltkJ+CePsvPgXXua48UtJjC/N4srPVpwaLtD3wxTuCiIEpEGrEJNoP4ynU1QjvQ==",
       "path": "blazorise.icons.fontawesome/0.9.1.2",
       "hashPath": "blazorise.icons.fontawesome.0.9.1.2.nupkg.sha512"
+    },
+    "Blazorise.Sidebar/0.9.1.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-KUiOKNo/qJ86HlIb8LeYTv9I5zh4ghkKGi/nPmHP0dx37FthG6xFOI2xhK/9UfvA/Yoy+b2BbaNnnr8IEZ3paQ==",
+      "path": "blazorise.sidebar/0.9.1.2",
+      "hashPath": "blazorise.sidebar.0.9.1.2.nupkg.sha512"
     },
     "bootstrap/4.5.2": {
       "type": "package",

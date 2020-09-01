@@ -5,7 +5,7 @@
 @inject IJSRuntime js
 
 <h3>FaultList</h3>
-<Alert Color="Color.Info" Visible="true">
+@*<Alert Color="Color.Info" Visible="true">
     <Heading Size="HeadingSize.Is4" TextColor="TextColor.Success">
         Big one!
         <CloseButton />
@@ -17,7 +17,7 @@
         <Button Color="Color.Info">Wanna do this</Button>
         <Button Color="Color.Light">Or do this</Button>
     </Paragraph>
-</Alert>
+</Alert>*@
 <br>
 
 @if (faultList == null)
@@ -53,7 +53,7 @@ else
                     <td>@faul.Description</td>
                     @*<td>@statusLabel(@faul.Status.ToString())</td>*@
                     <td>
-                        <Button Clicked="@(e => GetFaultAndShowModal(faul.Id))">Show Modal</Button>
+                        <Button Color="Color.Warning" Clicked="@(e => GetFaultAndShowModal(faul.Id))">Bitir</Button>
 
                     </td>
                     @*<td>
@@ -73,81 +73,104 @@ else
             <CloseButton Clicked="@HideModal" />
         </ModalHeader>
         <ModalBody>
+           
+            
+            
+            
+            
+            
+            
+            
+            
+            
             <EditForm Model="@faultToEdit" OnValidSubmit="@EditFault">
                 <DataAnnotationsValidator />
+                <CardDeck>
+                    <Card>
 
-                <label>Bölüm : </label>
-                <TextEdit Disabled="true" Text="@faultToEdit.MakinaGrubu" />
-
-
-
-                <label>Makina : </label>
-                <TextEdit Disabled="true" Text="@faultToEdit.Makina" />
+                        <CardBody>
 
 
+                            <label>Bölüm : </label>
+                            <TextEdit Disabled="true" Text="@faultToEdit.MakinaGrubu" />
 
 
-                <label>Operatör : </label>
 
-                <TextEdit Disabled="true" Text="@faultToEdit.Operator" />
-
-
-                <label>Açıklama :</label>
+                            <label>Makina : </label>
+                            <TextEdit Disabled="true" Text="@faultToEdit.Makina" />
 
 
-                <TextEdit Disabled="true" Text="@faultToEdit.Description" />
 
 
-                @*<button type="submit" class="btn btn-success" @onclick="(() => CreateFault())">
+                            <label>Operatör : </label>
+
+                            <TextEdit Disabled="true" Text="@faultToEdit.Operator" />
+
+
+                            <label>Açıklama :</label>
+
+
+                            <TextEdit Disabled="true" Text="@faultToEdit.Description" />
+
+
+                            @*<button type="submit" class="btn btn-success" @onclick="(() => CreateFault())">
                         Kaydet
                     </button>*@
+                        </CardBody>
+                    </Card>
+
+                    <Card>
+
+                        <CardBody>
 
 
-            <div>
+                            <div>
 
 
-                <div>
-                    <div>
-                        <label>Kullanıcı Adı</label>
-                    </div>
+                                <div>
+                                    <div>
+                                        <label>Kullanıcı Adı</label>
+                                    </div>
 
-                    <InputText @bind-Value="@faultToEdit.FixBy">
-                        @*<option value="">Lütfen Adınızı Giriniz...</option>*@
-                    </InputText>
-                </div>
-                <div>
-                    <div>
-                        <label>Yapılan İşlemler</label>
-                    </div>
+                                    <InputText @bind-Value="@faultToEdit.FixBy">
+                                        @*<option value="">Lütfen Adınızı Giriniz...</option>*@
+                                    </InputText>
+                                </div>
+                                <div>
+                                    <div>
+                                        <label>Yapılan İşlemler</label>
+                                    </div>
 
-                    <InputTextArea @bind-Value="@faultToEdit.FixDescription" rows="7" cols="42" />
-                    @*<option value="">Lütfen Açıklama Giriniz...</option>*@
-                </div>
-                <div>
-                    <div>
+                                    <InputTextArea @bind-Value="@faultToEdit.FixDescription" rows="7" cols="42" />
+                                    @*<option value="">Lütfen Açıklama Giriniz...</option>*@
+                                </div>
+                                <div>
+                                    <div>
 
-                        <label>Tarih</label>
-                    </div>
+                                        <label>Tarih</label>
+                                    </div>
+  
+                                    @*<Blazorise. TValue="DateTime" @bind-Value="@dateTime1" ></Blazorise.>*@
+                                    <InputDate  @bind-Value="@faultToEdit.FixedTime">
+                                    </InputDate>
+                                </div>
 
-
-                    <InputDate @bind-Value="@faultToEdit.FixedTime">
-                    </InputDate>
-                </div>
-
-                <hr />
-                @*<button type="submit" class="btn btn-success" @onclick="(() => EditFault())">
-            Kaydet
-        </button>*@
-            </div>
-
-
+                                <hr />
+                                @*<button type="submit" class="btn btn-success" @onclick="(() => EditFault())">
+                            Kaydet
+                        </button>*@
+                            </div>
 
 
-</EditForm>
+
+                        </CardBody>
+                    </Card>
+                    </CardDeck>
+            </EditForm>
         </ModalBody>
         <ModalFooter>
-            <Button Color="Color.Secondary" Clicked="@HideModal">Close</Button>
-            <Button Color="Color.Primary" Clicked="@HideModal">Save Changes</Button>
+            <Button Color="Color.Secondary" Clicked="@(()=>SaveChanges())">Kapat</Button>
+            <Button Color="Color.Primary" Clicked="@HideModal">Kaydet</Button>
         </ModalFooter>
     </ModalContent>
 </Modal>
@@ -156,21 +179,28 @@ else
 }
 @code {
 
+    public DateTime? dateTime1 = DateTime.Now;
+ 
 
 
-        //protected override async Task OnInitializedAsync()
-        //{
-        //    faults = await client.GetFromJsonAsync<FaultList[]>("api/fault");
-        //}
 
-        List<BlazorApp4.Shared.Models.Fault> faultList { get; set; }
-        [Parameter] public BlazorApp4.Shared.Models.Fault selectedFault { get; set; }
+    //protected override async Task OnInitializedAsync()
+    //{
+    //    faults = await client.GetFromJsonAsync<FaultList[]>("api/fault");
+    //}
+
+    List<BlazorApp4.Shared.Models.Fault> faultList { get; set; }
+    [Parameter] public BlazorApp4.Shared.Models.Fault selectedFault { get; set; }
     protected override async Task OnInitializedAsync()
     {
         faultList = await client.GetFromJsonAsync<List<BlazorApp4.Shared.Models.Fault>>("api/fault");
 
 
     }
+
+    [Parameter] public BlazorApp4.Shared.Models.Fault faultToEdit { get; set; } = new BlazorApp4.Shared.Models.Fault();
+
+    [Parameter] public int faultId { get; set; }
 
     public String statusLabel(String text)
     {
@@ -197,7 +227,7 @@ else
     private void ShowModal()
     {
 
-        // selectedFault = fault;
+        //   selectedFault = fault;
         modalRef.Show();
     }
     private void EditFault()
@@ -205,12 +235,19 @@ else
 
     }
 
+    async  Task SaveChanges()
+    {
+        await http.PostAsJsonAsync($"api/fault", faultToEdit);
+        modalRef.Hide();
+        return ;
+
+    }
     private void HideModal()
     {
         selectedFault = null;
         modalRef.Hide();
     }
-    [Parameter] public BlazorApp4.Shared.Models.Fault faultToEdit { get; set; } = new BlazorApp4.Shared.Models.Fault();
+
     public async void GetFaultAndShowModal(int id)
     {
         faultToEdit = await http.GetFromJsonAsync<BlazorApp4.Shared.Models.Fault>($"api/fault/{id}");

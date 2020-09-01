@@ -6,7 +6,7 @@
   "linkerEnabled": false,
   "resources": {
     "assembly": {
-      "BlazorApp4.Client.dll": "sha256-ZtjCo9RZUHo1bNHmBExvsfnsWl6Fp2RH9GzrWFD12f8=",
+      "BlazorApp4.Client.dll": "sha256-btwAf2ttqHm3RvunZ+Fm8L3pi4SDSY6qEreG5DIlzn0=",
       "System.Text.Json.dll": "sha256-HQeN+ZfHAERO+uW0fP0J9J3WV1hQ3vUIOWbqGSYBPp8=",
       "System.Runtime.CompilerServices.Unsafe.dll": "sha256-kL\/omZDwqByAi+lPdMeDmr3XjHcn4RVb+LmZ4mut1Yc=",
       "mscorlib.dll": "sha256-BaZPMj95+YNe3G4ckTGD6szZFwZeA2MOHn91zTGKDeU=",
@@ -53,7 +53,8 @@
       "System.Linq.Dynamic.Core.dll": "sha256-aHqvd\/TLf\/ZZOpXlafzNNthD2HjPJLadm9zDFZWm39k=",
       "System.Reflection.Emit.ILGeneration.dll": "sha256-yTznKFXYjwtGYUGUdxYEw8gA1A+IWlMYOncOmAAyJas=",
       "System.Reflection.Emit.dll": "sha256-4A297N6Xf0UZNMTrY+4COe43Hmcrtxb\/eTiqTJ5M6wA=",
-      "BlazorApp4.Shared.dll": "sha256-FSeFlm8w14wlaRCKOde7z1bljls0bqFDDAQSifr9yGQ=",
+      "BlazorApp4.Shared.dll": "sha256-kUVmMFnYGvdvJBJNHHb0cfFBjxcJyeJhKCoPddIW6rg=",
+      "Blazorise.Sidebar.dll": "sha256-2mH6sSaylXDwlnPhEFv1muVGZaZbdQnXYpW1MzQXIOc=",
       "Microsoft.AspNetCore.Components.WebAssembly.dll": "sha256-FJ+rEgcx6ljTxwbRXZSUGfrDKpVvOxHCSfNxbnXNn3M=",
       "Microsoft.Extensions.DependencyInjection.dll": "sha256-woXzLY7bKAonfaX3WRGOcU27gyvyyzyQmcAipiTAcNQ=",
       "Microsoft.Extensions.Primitives.dll": "sha256-ylX7VKoH7433xA+yHLYr6lPOuhCKV4qhw7GLUx6J82E=",
@@ -69,9 +70,9 @@
       "Microsoft.JSInterop.WebAssembly.dll": "sha256-czNf3btAeBW\/vvID5LAfgcsNZ+GM3ssVuPaMflcg0rs="
     },
     "pdb": {
-      "BlazorApp4.Client.pdb": "sha256-Rj3UwU+Z3DxtEUlcmHSyWVGFesIUr4etaeAU3bzxZNQ=",
+      "BlazorApp4.Client.pdb": "sha256-Fr9pmmHkDatKCKAWZvfCiEu0dDRe57TIepE19RZA6fE=",
       "System.Linq.Dynamic.Core.pdb": "sha256-TUdNbGDz+ogqJea4nbn9e5NAJa8g20Wv3as0sLQ8J+o=",
-      "BlazorApp4.Shared.pdb": "sha256-X9NRBjqNGGTMJ+posAveq5oabxa8RYQQf4VGa4+jHCw="
+      "BlazorApp4.Shared.pdb": "sha256-sMBzYA+Oc4u\/Nf+E4reFiyFdto+vNo3R0pLdAaAvTbo="
     },
     "runtime": {
       "dotnet.3.2.0.js": "sha256-mPoqx7XczFHBWk3gRNn0hc9ekG1OvkKY4XiKRY5Mj5U=",

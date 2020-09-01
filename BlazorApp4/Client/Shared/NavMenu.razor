@@ -1,10 +1,34 @@
 ﻿<div class="top-row pl-4 navbar navbar-dark">
-    <a class="navbar-brand" href="">BlazorApp4</a>
+    <a class="navbar-brand" href="">Menü</a>
     <button class="navbar-toggler" @onclick="ToggleNavMenu">
         <span class="navbar-toggler-icon"></span>
     </button>
 </div>
-
+<Sidebar @ref="sidebar">
+    <SidebarContent>
+        @*<SidebarBrand>
+            <a href="">Blazorise Sidebar</a>
+        </SidebarBrand>*@
+        <SidebarNavigation>
+            @*<SidebarLabel>Main</SidebarLabel>*@
+            <SidebarItem>
+                <SidebarLink To="/fault/create" Title="Arıza Formu">
+                    <Icon Name="IconName.Tablet" Margin="Margin.Is3.FromRight" />Arıza Formu
+                </SidebarLink>
+            </SidebarItem>
+            <SidebarItem>
+                <SidebarLink To="/fault" Title="Arıza Listesi">
+                    <Icon Name="IconName.List" Margin="Margin.Is3.FromRight" />Arıza Listesi
+                </SidebarLink>
+            </SidebarItem> 
+            <SidebarItem>
+                <SidebarLink To="/fault/search" Title="Arıza Sorgula">
+                    <Icon Name="IconName.Search" Margin="Margin.Is3.FromRight" />Arıza Sorgula
+                </SidebarLink>
+            </SidebarItem>
+        </SidebarNavigation>
+    </SidebarContent>
+</Sidebar>
 <div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
     <ul class="nav flex-column">
         <li class="nav-item px-3">
@@ -39,4 +63,27 @@
     {
         collapseNavMenu = !collapseNavMenu;
     }
+
+
+    Sidebar sidebar;
+    //SidebarSubItem mailSidebarSubItems;
+    //SidebarSubItem appsSidebarSubItems;
+
+    void ToggleSidebar()
+    {
+        sidebar.Toggle();
+    }
+
+
+
 }
+
+
+
+
+
+
+
+
+
+

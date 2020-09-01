@@ -80,6 +80,13 @@ using Blazorise;
 #line hidden
 #nullable disable
 #nullable restore
+#line 11 "C:\Users\Duygu GÜNGÖR\source\repos\BlazorApp4\BlazorApp4\Client\_Imports.razor"
+using Blazorise.Sidebar;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 2 "C:\Users\Duygu GÜNGÖR\source\repos\BlazorApp4\BlazorApp4\Client\Pages\FetchData.razor"
 using BlazorApp4.Shared;
 

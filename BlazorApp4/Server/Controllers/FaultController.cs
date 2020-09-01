@@ -126,9 +126,15 @@ namespace BlazorApp4.Server.Controllers
 
         protected DateTime UnixTimeStampToDateTime(long unixTimeStamp)
         {
-            System.DateTime dtDateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
+            System.DateTime dtDateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Local);
             dtDateTime = dtDateTime.AddSeconds(unixTimeStamp);
             return dtDateTime;
+
+            //Local için kodu örnek aldığım yer ;
+            //DateTime myDate = DateTime.SpecifyKind(saveUtcNow, DateTimeKind.Utc); // 12/20/2015 12:17:18 PM  
+            //DateTime myDate2 = DateTime.SpecifyKind(saveNow, DateTimeKind.Local); // 12/20/2015 5:47:17 PM  
+             //https://www.c-sharpcorner.com/article/datetime-in-c-sharp/
+
         }
     }
 }

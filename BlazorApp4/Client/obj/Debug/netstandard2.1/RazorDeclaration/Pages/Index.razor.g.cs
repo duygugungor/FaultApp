@@ -83,6 +83,13 @@ using Blazorise;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 11 "C:\Users\Duygu GÜNGÖR\source\repos\BlazorApp4\BlazorApp4\Client\_Imports.razor"
+using Blazorise.Sidebar;
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/")]
     public partial class Index : Microsoft.AspNetCore.Components.ComponentBase
     {

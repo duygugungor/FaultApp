@@ -53,6 +53,10 @@
               "target": "Package",
               "version": "[0.9.1.2, )"
             },
+            "Blazorise.Sidebar": {
+              "target": "Package",
+              "version": "[0.9.1.2, )"
+            },
             "Microsoft.AspNetCore.Components.WebAssembly": {
               "target": "Package",
               "version": "[3.2.1, )"

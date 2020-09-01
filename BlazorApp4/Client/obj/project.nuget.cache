@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "LIemt0olejLG/OwKds1bfSWL7rLplamAeJEd1YW+8VA5ur5S+oAOHQs6aT4Vbr/gGOUqWD26zFxe9WW/nLdmgA==",
+  "dgSpecHash": "LsVid2W/c9cVBlhVTrR28ylB9mfN+6elqZX/MvykZb3/CnaTRSptk5FuvTReSOPvuH67pSBHlCCn+ovIAkb9cQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Duygu GÜNGÖR\\source\\repos\\BlazorApp4\\BlazorApp4\\Client\\BlazorApp4.Client.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Duygu GÜNGÖR\\.nuget\\packages\\blazorise\\0.9.1.2\\blazorise.0.9.1.2.nupkg.sha512",
     "C:\\Users\\Duygu GÜNGÖR\\.nuget\\packages\\blazorise.bootstrap\\0.9.1.2\\blazorise.bootstrap.0.9.1.2.nupkg.sha512",
     "C:\\Users\\Duygu GÜNGÖR\\.nuget\\packages\\blazorise.icons.fontawesome\\0.9.1.2\\blazorise.icons.fontawesome.0.9.1.2.nupkg.sha512",
+    "C:\\Users\\Duygu GÜNGÖR\\.nuget\\packages\\blazorise.sidebar\\0.9.1.2\\blazorise.sidebar.0.9.1.2.nupkg.sha512",
     "C:\\Users\\Duygu GÜNGÖR\\.nuget\\packages\\bootstrap\\4.5.2\\bootstrap.4.5.2.nupkg.sha512",
     "C:\\Users\\Duygu GÜNGÖR\\.nuget\\packages\\jquery\\3.0.0\\jquery.3.0.0.nupkg.sha512",
     "C:\\Users\\Duygu GÜNGÖR\\.nuget\\packages\\microsoft.aspnetcore.authorization\\3.1.6\\microsoft.aspnetcore.authorization.3.1.6.nupkg.sha512",
