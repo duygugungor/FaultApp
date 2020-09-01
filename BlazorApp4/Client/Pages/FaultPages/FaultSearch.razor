@@ -3,6 +3,7 @@
 @inject HttpClient client
 @inject NavigationManager uriHelper
 @inject IJSRuntime js
+@using System.Net.Http
 
 
 <h3>FaultSearch</h3>
@@ -12,13 +13,7 @@
     <DataAnnotationsValidator />
 
     <div>
-        @*<InputDate>
 
-            </InputDate>
-
-            <InputDate>
-
-            </InputDate>*@
         <input id="dp1" type="date" @bind="dp1" />
         <input id="dp2" type="date" @bind="dp2" />
 
@@ -55,104 +50,138 @@
 
 
 
-    <br />
+<br />
 
-    @if (faultList == null)
-    {
-        <text>Yükleniyor...</text>
-    }
-    else if (faultList.Length == 0)
-    {
-        <text>Kayıt bulunamadı.</text>
-    }
-    else
-    {
-        <table class="table table-striped">
-            <thead>
+@if (faultList == null)
+{
+    <text>Yükleniyor...</text>
+}
+else if (faultList.Length == 0)
+{
+    <text>Kayıt bulunamadı.</text>
+}
+else
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Bölüm</th>
+                <th>Makina</th>
+                <th>Arıza Başlama Tarihi</th>
+                <th>Arıza Bitiş Tarihi</th>
+                <th>Yapılan İşlemler</th>
+                @*<th>Durum</th>*@
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (BlazorApp4.Shared.Models.Fault faul in faultList)
+            {
                 <tr>
-                    <th>Bölüm</th>
-                    <th>Makina</th>
-                    <th>Operatör</th>
-                    <th>Tarih</th>
-                    <th>Açıklama</th>
-                    <th>Durum</th>
+                    <td>@faul.MakinaGrubu</td>
+                    <td>@faul.Makina</td>
+                    <td>@faul.CreatedTime</td>
+                    <td>@faul.FixedTime</td>
+                    <td>@faul.FixDescription</td>
+                    @*<td>@statusLabel(@faul.Status.ToString())</td>*@
+                    @*<td>
+                            <a class="btn btn-success" href="/FaultListForm/@faul.Id">Edit</a>
+                            <button class="btn btn-danger" @onclick="@(() => Delete(faul.Id))">Delete</button>
+                        </td>*@
                 </tr>
-            </thead>
-            <tbody>
-                @foreach (BlazorApp4.Shared.Models.Fault faul in faultList)
-                {
-                    <tr>
-                        <td>@faul.MakinaGrubu</td>
-                        <td>@faul.Makina</td>
-                        <td>@faul.Operator</td>
-                        <td>@faul.CreatedTime</td>
-                        <td>@faul.Description</td>
-                        <td>@statusLabel(@faul.Status.ToString())</td>
-                        @*<td>
-                                <a class="btn btn-success" href="/FaultListForm/@faul.Id">Edit</a>
-                                <button class="btn btn-danger" @onclick="@(() => Delete(faul.Id))">Delete</button>
-                            </td>*@
-                    </tr>
-                }
+            }
 
-            </tbody>
-        </table>
+        </tbody>
+    </table>
+}
+
+@code {
+
+
+    [Parameter] public BlazorApp4.Shared.Models.Fault fault { get; set; } = new BlazorApp4.Shared.Models.Fault();
+
+    BlazorApp4.Shared.Models.Fault[] faultList { get; set; }
+
+    public String statusLabel(String text)
+    {
+        if (text == "REPORTED")
+        {
+            return "RAPOR EDİLDİ";
+        }
+        else if (text == "FIXING")
+        {
+            return "TAMİR EDİLİYOR";
+        }
+        else if (text == "FIXED")
+        {
+            return "TAMİR EDİLDİ";
+        }
+        else
+        {
+            return " - ";
+        }
     }
 
-    @code {
 
-
-        [Parameter] public BlazorApp4.Shared.Models.Fault fault { get; set; } = new BlazorApp4.Shared.Models.Fault();
-
-        BlazorApp4.Shared.Models.Fault[] faultList { get; set; }
-
-        public String statusLabel(String text)
-        {
-            if (text == "REPORTED")
-            {
-                return "RAPOR EDİLDİ";
-            }
-            else if (text == "FIXING")
-            {
-                return "TAMİR EDİLİYOR";
-            }
-            else if (text == "FIXED")
-            {
-                return "TAMİR EDİLDİ";
-            }
-            else
-            {
-                return " - ";
-            }
-        }
-
-
-        Dictionary<String, List<String>> machineList { get; set; } =
-  new Dictionary<String, List<String>>()
-  {
+    Dictionary<String, List<String>> machineList { get; set; } =
+new Dictionary<String, List<String>>()
+{
             { "EFEKT",  new List<string>() { "EFEKT-1", "EFEKT-2", "EFEKT-3", "EFEKT-4" } }
   };
 
-        public List<String> makina { get; set; } = new List<String>() { "Liste Yüklenemedi" };
+    public List<String> makina { get; set; } = new List<String>() { "Liste Yüklenemedi" };
 
-        public void DoStuff(ChangeEventArgs e)
-        {
-            var kafamdakiMakina = e.Value.ToString();
-            fault.MakinaGrubu = kafamdakiMakina;
-            // Console.WriteLine("It is definitely: " + kafamdakiMakina);
-            makina = machineList.ContainsKey(kafamdakiMakina) ? machineList[kafamdakiMakina] : new List<String>() { "Liste Yüklenemedi" };
-
-        }
-        public DateTime dp1 = DateTime.Now;
-        public DateTime dp2 = DateTime.Now;
-
-
-        async void Click(MouseEventArgs args, string buttonName)
-        {
-            var url = "api/fault/query?after=" + dp1.ToString() + "&before=" + dp2.ToString();
-            faultList = await client.GetFromJsonAsync<BlazorApp4.Shared.Models.Fault[]>(url);
-            Console.WriteLine(faultList);
-        }
-
+    public void DoStuff(ChangeEventArgs e)
+    {
+        var kafamdakiMakina = e.Value.ToString();
+        fault.MakinaGrubu = kafamdakiMakina;
+        // Console.WriteLine("It is definitely: " + kafamdakiMakina);
+        makina = machineList.ContainsKey(kafamdakiMakina) ? machineList[kafamdakiMakina] : new List<String>() { "Liste Yüklenemedi" };
 
     }
+    public DateTime dp1 = DateTime.Now;
+    public DateTime dp2 = DateTime.Now;
+
+
+    async void Click(MouseEventArgs args, string buttonName)
+    {
+        long after = ((DateTimeOffset)dp1).ToUnixTimeMilliseconds();
+        long before = ((DateTimeOffset)dp2).ToUnixTimeMilliseconds();
+
+        var url = "api/fault/query?afterTimestamp=" + after.ToString() + "&beforeTimestamp=" + before.ToString();
+        faultList = await client.GetFromJsonAsync<BlazorApp4.Shared.Models.Fault[]>(url);
+        Console.WriteLine(faultList);
+    }
+
+    // var appointmentNoShow = from a in appointments
+    // from p in properties
+    // from c in clients
+    // where a.Id == p.OID &&
+    //(a.Start.Date >= startDate.Date && a.Start.Date <= endDate)
+
+
+
+    //public List<tbltask> gettaskssdata(int? c, int? userid, string a, string StartDate, string EndDate, int? ProjectID, int? statusid)
+    //{
+    //    List<tbltask> tbtask = new List<tbltask>();
+    //    DateTime sdate = (StartDate != "") ? Convert.ToDateTime(StartDate).Date : new DateTime();
+    //    DateTime edate = (EndDate != "") ? Convert.ToDateTime(EndDate).Date : new DateTime();
+    //    tbtask = entity.tbltasks.Include(x => x.tblproject).Include(x => x.tbUser).
+    //        Where(x => x.tblproject.company_id == c
+    //            && (ProjectID == 0 || ProjectID == x.tblproject.ProjectId)
+    //            && (statusid == 0 || statusid == x.tblstatu.StatusId)
+    //            && (a == "" || (x.TaskName.Contains(a) || x.tbUser.User_name.Contains(a)))
+    //            && ((StartDate == "" && EndDate == "") || ((x.StartDate >= sdate && x.EndDate <= edate)))).ToList();
+
+
+
+    //    return tbtask;
+
+
+    //}
+
+
+
+
+
+
+}

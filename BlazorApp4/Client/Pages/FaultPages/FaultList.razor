@@ -5,7 +5,19 @@
 @inject IJSRuntime js
 
 <h3>FaultList</h3>
-
+<Alert Color="Color.Info" Visible="true">
+    <Heading Size="HeadingSize.Is4" TextColor="TextColor.Success">
+        Big one!
+        <CloseButton />
+    </Heading>
+    <Paragraph>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum.
+    </Paragraph>
+    <Paragraph>
+        <Button Color="Color.Info">Wanna do this</Button>
+        <Button Color="Color.Light">Or do this</Button>
+    </Paragraph>
+</Alert>
 <br>
 
 @if (faultList == null)
@@ -32,35 +44,127 @@ else
         <tbody>
             @foreach (BlazorApp4.Shared.Models.Fault faul in faultList)
             {
-            <tr>
-                <td>@faul.MakinaGrubu</td>
-                <td>@faul.Makina</td>
-                <td>@faul.Operator</td>
-                <td>@faul.CreatedTime</td>
-                <td>@faul.Description</td>
-                @*<td>@statusLabel(@faul.Status.ToString())</td>*@
-                <td>
-                    <a class="btn btn-success" href="fault/edit/@faul.Id">Bitir</a>  
-                </td>
-                @*<td>
-            <a class="btn btn-success" href="fault/edit/@faul.Id">Edit</a>
-        </td>*@
-            </tr>
+                
+                <tr>
+                    <td>@faul.MakinaGrubu</td>
+                    <td>@faul.Makina</td>
+                    <td>@faul.Operator</td>
+                    <td>@faul.CreatedTime</td>
+                    <td>@faul.Description</td>
+                    @*<td>@statusLabel(@faul.Status.ToString())</td>*@
+                    <td>
+                        <Button Clicked="@(e => GetFaultAndShowModal(faul.Id))">Show Modal</Button>
+
+                    </td>
+                    @*<td>
+                    <a class="btn btn-success" href="fault/edit/@faul.Id">Edit</a>
+                </td>*@
+
+                </tr>
             }
 
         </tbody>
     </table>
+                    <Modal @ref="modalRef">
+    <ModalBackdrop />
+    <ModalContent IsCentered="true">
+        <ModalHeader>
+            <ModalTitle>Employee edit</ModalTitle>
+            <CloseButton Clicked="@HideModal" />
+        </ModalHeader>
+        <ModalBody>
+            <EditForm Model="@faultToEdit" OnValidSubmit="@EditFault">
+                <DataAnnotationsValidator />
+
+                <label>Bölüm : </label>
+                <TextEdit Disabled="true" Text="@faultToEdit.MakinaGrubu" />
+
+
+
+                <label>Makina : </label>
+                <TextEdit Disabled="true" Text="@faultToEdit.Makina" />
+
+
+
+
+                <label>Operatör : </label>
+
+                <TextEdit Disabled="true" Text="@faultToEdit.Operator" />
+
+
+                <label>Açıklama :</label>
+
+
+                <TextEdit Disabled="true" Text="@faultToEdit.Description" />
+
+
+                @*<button type="submit" class="btn btn-success" @onclick="(() => CreateFault())">
+                        Kaydet
+                    </button>*@
+
+
+            <div>
+
+
+                <div>
+                    <div>
+                        <label>Kullanıcı Adı</label>
+                    </div>
+
+                    <InputText @bind-Value="@faultToEdit.FixBy">
+                        @*<option value="">Lütfen Adınızı Giriniz...</option>*@
+                    </InputText>
+                </div>
+                <div>
+                    <div>
+                        <label>Yapılan İşlemler</label>
+                    </div>
+
+                    <InputTextArea @bind-Value="@faultToEdit.FixDescription" rows="7" cols="42" />
+                    @*<option value="">Lütfen Açıklama Giriniz...</option>*@
+                </div>
+                <div>
+                    <div>
+
+                        <label>Tarih</label>
+                    </div>
+
+
+                    <InputDate @bind-Value="@faultToEdit.FixedTime">
+                    </InputDate>
+                </div>
+
+                <hr />
+                @*<button type="submit" class="btn btn-success" @onclick="(() => EditFault())">
+            Kaydet
+        </button>*@
+            </div>
+
+
+
+
+</EditForm>
+        </ModalBody>
+        <ModalFooter>
+            <Button Color="Color.Secondary" Clicked="@HideModal">Close</Button>
+            <Button Color="Color.Primary" Clicked="@HideModal">Save Changes</Button>
+        </ModalFooter>
+    </ModalContent>
+</Modal>
+
+
 }
 @code {
 
 
 
-    //protected override async Task OnInitializedAsync()
-    //{
-    //    faults = await client.GetFromJsonAsync<FaultList[]>("api/fault");
-    //}
+        //protected override async Task OnInitializedAsync()
+        //{
+        //    faults = await client.GetFromJsonAsync<FaultList[]>("api/fault");
+        //}
 
-    List<BlazorApp4.Shared.Models.Fault> faultList { get; set; }
+        List<BlazorApp4.Shared.Models.Fault> faultList { get; set; }
+        [Parameter] public BlazorApp4.Shared.Models.Fault selectedFault { get; set; }
     protected override async Task OnInitializedAsync()
     {
         faultList = await client.GetFromJsonAsync<List<BlazorApp4.Shared.Models.Fault>>("api/fault");
@@ -70,19 +174,47 @@ else
 
     public String statusLabel(String text)
     {
-        if(text == "REPORTED")
+        if (text == "REPORTED")
         {
             return "RAPOR EDİLDİ";
-        } else if (text == "FIXING")
+        }
+        else if (text == "FIXING")
         {
             return "TAMİR EDİLİYOR";
-        } else if ( text == "FIXED")
+        }
+        else if (text == "FIXED")
         {
             return "TAMİR EDİLDİ";
-        } else
+        }
+        else
         {
             return " - ";
         }
+    }
+
+    private Modal modalRef;
+
+    private void ShowModal()
+    {
+
+        // selectedFault = fault;
+        modalRef.Show();
+    }
+    private void EditFault()
+    {
+
+    }
+
+    private void HideModal()
+    {
+        selectedFault = null;
+        modalRef.Hide();
+    }
+    [Parameter] public BlazorApp4.Shared.Models.Fault faultToEdit { get; set; } = new BlazorApp4.Shared.Models.Fault();
+    public async void GetFaultAndShowModal(int id)
+    {
+        faultToEdit = await http.GetFromJsonAsync<BlazorApp4.Shared.Models.Fault>($"api/fault/{id}");
+        ShowModal();
     }
 
 }

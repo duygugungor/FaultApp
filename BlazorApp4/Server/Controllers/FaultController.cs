@@ -45,9 +45,12 @@ namespace BlazorApp4.Server.Controllers
 
         [HttpGet]
         [Route("query")] // <- no route parameters specified
-        public IActionResult GetByCoordinates([FromQuery] DateTime after,
-                                              [FromQuery] DateTime before)
+        public IActionResult filterByParameters([FromQuery] long afterTimestamp,
+                                              [FromQuery] long beforeTimestamp)
         {
+
+            DateTime after = DateTimeOffset.FromUnixTimeMilliseconds(afterTimestamp).DateTime;
+            DateTime before = DateTimeOffset.FromUnixTimeMilliseconds(beforeTimestamp).DateTime;
             // will be matched by e.g.
             // /api/1.0/availabilities?xCoordinate=34.3444&yCoordinate=66.3422
 
@@ -60,6 +63,11 @@ namespace BlazorApp4.Server.Controllers
             //_context.Entry(_fault).State = EntityState.Deleted;
             //_context.SaveChanges();
             return Ok(_faults);
+
+            //.Start.Date >= startDate.Date
+            //            where a.Start.Date <= endDate.Date
+
+
 
         }
 
@@ -80,9 +88,32 @@ namespace BlazorApp4.Server.Controllers
         public async Task<IActionResult> Put(Fault fault)
         {
             _context.Entry(fault).State = EntityState.Modified;
+
             await _context.SaveChangesAsync();
             return NoContent();
         }
+
+        [HttpPut("{id}")]
+        public async Task<ActionResult> EditFault(int id, Fault fault)
+        {
+            if (id != fault.Id)
+            {
+                return BadRequest();
+            }
+            _context.Entry(fault).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
+            return NoContent();
+
+
+        
+
+
+        }
+
+
+
+
+
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
@@ -91,6 +122,13 @@ namespace BlazorApp4.Server.Controllers
             _context.Remove(fault);
             await _context.SaveChangesAsync();
             return NoContent();
+        }
+
+        protected DateTime UnixTimeStampToDateTime(long unixTimeStamp)
+        {
+            System.DateTime dtDateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
+            dtDateTime = dtDateTime.AddSeconds(unixTimeStamp);
+            return dtDateTime;
         }
     }
 }
