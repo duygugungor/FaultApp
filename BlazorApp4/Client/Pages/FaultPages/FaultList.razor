@@ -4,7 +4,7 @@
 @inject NavigationManager uriHelper
 @inject IJSRuntime js
 
-<h3>FaultList</h3>
+<h3>Mevcut Arıza Listesi</h3>
 @*<Alert Color="Color.Info" Visible="true">
     <Heading Size="HeadingSize.Is4" TextColor="TextColor.Success">
         Big one!
@@ -44,23 +44,27 @@ else
         <tbody>
             @foreach (BlazorApp4.Shared.Models.Fault faul in faultList)
             {
-                
-                <tr>
-                    <td>@faul.MakinaGrubu</td>
-                    <td>@faul.Makina</td>
-                    <td>@faul.Operator</td>
-                    <td>@faul.CreatedTime</td>
-                    <td>@faul.Description</td>
-                    @*<td>@statusLabel(@faul.Status.ToString())</td>*@
-                    <td>
-                        <Button Color="Color.Warning" Clicked="@(e => GetFaultAndShowModal(faul.Id))">Bitir</Button>
+                @if (faul.Status == 0)
+                {
 
-                    </td>
-                    @*<td>
-                    <a class="btn btn-success" href="fault/edit/@faul.Id">Edit</a>
-                </td>*@
+                    <tr>
+                        <td>@faul.MakinaGrubu</td>
+                        <td>@faul.Makina</td>
+                        <td>@faul.Operator</td>
+                        <td>@faul.CreatedTime</td>
+                        <td>@faul.Description</td>
+                        @*<td>@statusLabel(@faul.Status.ToString())</td>*@
+                        <td>
+                            <Button Color="Color.Warning" Clicked="@(e => GetFaultAndShowModal(faul.Id))">Bitir</Button>
 
-                </tr>
+                        </td>
+                        @*<td>
+                        <a class="btn btn-success" href="fault/edit/@faul.Id">Edit</a>
+                    </td>*@
+
+                    </tr>
+                }
+
             }
 
         </tbody>
@@ -69,20 +73,11 @@ else
     <ModalBackdrop />
     <ModalContent IsCentered="true">
         <ModalHeader>
-            <ModalTitle>Employee edit</ModalTitle>
+            <ModalTitle>Arıza Bitir</ModalTitle>
             <CloseButton Clicked="@HideModal" />
         </ModalHeader>
         <ModalBody>
-           
-            
-            
-            
-            
-            
-            
-            
-            
-            
+ 
             <EditForm Model="@faultToEdit" OnValidSubmit="@EditFault">
                 <DataAnnotationsValidator />
                 <CardDeck>
@@ -118,15 +113,9 @@ else
                     </button>*@
                         </CardBody>
                     </Card>
-
                     <Card>
-
                         <CardBody>
-
-
                             <div>
-
-
                                 <div>
                                     <div>
                                         <label>Kullanıcı Adı</label>
@@ -151,9 +140,10 @@ else
                                     </div>
   
                                     @*<Blazorise. TValue="DateTime" @bind-Value="@dateTime1" ></Blazorise.>*@
-                                    <InputDate  @bind-Value="@faultToEdit.FixedTime">
+                                <InputDate @bind-Value="@dateTime1">
+                                    @*<InputDate @bind-Value="@faultToEdit.FixedTime">*@
                                     </InputDate>
-                                </div>
+</div>
 
                                 <hr />
                                 @*<button type="submit" class="btn btn-success" @onclick="(() => EditFault())">

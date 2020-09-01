@@ -6,7 +6,7 @@
 @using System.Net.Http
 
 
-<h3>FaultSearch</h3>
+<h3>Arıza Sorgula</h3>
 <br />
 
 <EditForm Model="@fault">
@@ -17,28 +17,26 @@
         <input id="dp1" type="date" @bind="dp1" />
         <input id="dp2" type="date" @bind="dp2" />
 
-        <select value="@fault.MakinaGrubu" @onchange="@DoStuff">
-            <option value="">Lütfen Seçiniz</option>
-            @foreach (var item in machineList.Keys)
-            {
-                <option value="@item">@item</option>
-            }
-        </select>
-        <ValidationMessage For="@(() => fault.MakinaGrubu)" />
+        @*<InputSelect @bind-Value="@StatusView"/>*@
 
-        <InputSelect @bind-Value="@fault.Makina">
-            <option value="">Lütfen Seçiniz</option>
-            @foreach (var item in makina)
-            {
+            <select value="@fault.MakinaGrubu" @onchange="@DoStuff">
+                <option value="">Lütfen Seçiniz</option>
+                @foreach (var item in machineList.Keys)
+                {
+                    <option value="@item">@item</option>
+                }
+            </select>
+            <ValidationMessage For="@(() => fault.MakinaGrubu)" />
 
-                <option value="@item">@item</option>
-            }
-        </InputSelect>
-        <ValidationMessage For="@(() => fault.Makina)" />
+            <InputSelect @bind-Value="@fault.Makina">
+                <option value="">Lütfen Seçiniz</option>
+                @foreach (var item in makina)
+                {
 
-
-
-
+                    <option value="@item">@item</option>
+                }
+            </InputSelect>
+            <ValidationMessage For="@(() => fault.Makina)" />
 
     </div>
     <br />
@@ -109,10 +107,7 @@ else
         {
             return "RAPOR EDİLDİ";
         }
-        else if (text == "FIXING")
-        {
-            return "TAMİR EDİLİYOR";
-        }
+
         else if (text == "FIXED")
         {
             return "TAMİR EDİLDİ";

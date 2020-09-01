@@ -1,4 +1,6 @@
-﻿namespace BlazorApp4.Shared.Models
+﻿using System;
+
+namespace BlazorApp4.Shared.Models
 {
     public enum FaultStatus
     {

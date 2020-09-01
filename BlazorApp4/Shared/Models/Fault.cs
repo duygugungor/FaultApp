@@ -9,9 +9,7 @@ namespace BlazorApp4.Shared.Models
 {
     public class Fault :DBContact
     {
-        public Fault()
-        {
-        }
+      
         [Required()]
         public int Id { get; set; }
         [Required()]

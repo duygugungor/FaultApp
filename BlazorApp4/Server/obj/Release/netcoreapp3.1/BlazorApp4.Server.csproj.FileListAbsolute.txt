@@ -1,0 +1,6 @@
+C:\Users\Duygu GÜNGÖR\source\repos\BlazorApp4\BlazorApp4\Server\obj\Release\netcoreapp3.1\BlazorApp4.Server.AssemblyInfoInputs.cache
+C:\Users\Duygu GÜNGÖR\source\repos\BlazorApp4\BlazorApp4\Server\obj\Release\netcoreapp3.1\BlazorApp4.Server.AssemblyInfo.cs
+C:\Users\Duygu GÜNGÖR\source\repos\BlazorApp4\BlazorApp4\Server\obj\Release\netcoreapp3.1\BlazorApp4.Server.csproj.CoreCompileInputs.cache
+C:\Users\Duygu GÜNGÖR\source\repos\BlazorApp4\BlazorApp4\Server\obj\Release\netcoreapp3.1\BlazorApp4.Server.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Duygu GÜNGÖR\source\repos\BlazorApp4\BlazorApp4\Server\obj\Release\netcoreapp3.1\BlazorApp4.Server.RazorAssemblyInfo.cache
+C:\Users\Duygu GÜNGÖR\source\repos\BlazorApp4\BlazorApp4\Server\obj\Release\netcoreapp3.1\BlazorApp4.Server.RazorAssemblyInfo.cs

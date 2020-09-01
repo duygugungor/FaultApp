@@ -1,0 +1,8 @@
+C:\Users\Duygu GÜNGÖR\source\repos\BlazorApp4\BlazorApp4\Shared\bin\Release\netstandard2.1\BlazorApp4.Shared.deps.json
+C:\Users\Duygu GÜNGÖR\source\repos\BlazorApp4\BlazorApp4\Shared\bin\Release\netstandard2.1\BlazorApp4.Shared.dll
+C:\Users\Duygu GÜNGÖR\source\repos\BlazorApp4\BlazorApp4\Shared\bin\Release\netstandard2.1\BlazorApp4.Shared.pdb
+C:\Users\Duygu GÜNGÖR\source\repos\BlazorApp4\BlazorApp4\Shared\obj\Release\netstandard2.1\BlazorApp4.Shared.AssemblyInfoInputs.cache
+C:\Users\Duygu GÜNGÖR\source\repos\BlazorApp4\BlazorApp4\Shared\obj\Release\netstandard2.1\BlazorApp4.Shared.AssemblyInfo.cs
+C:\Users\Duygu GÜNGÖR\source\repos\BlazorApp4\BlazorApp4\Shared\obj\Release\netstandard2.1\BlazorApp4.Shared.csproj.CoreCompileInputs.cache
+C:\Users\Duygu GÜNGÖR\source\repos\BlazorApp4\BlazorApp4\Shared\obj\Release\netstandard2.1\BlazorApp4.Shared.dll
+C:\Users\Duygu GÜNGÖR\source\repos\BlazorApp4\BlazorApp4\Shared\obj\Release\netstandard2.1\BlazorApp4.Shared.pdb

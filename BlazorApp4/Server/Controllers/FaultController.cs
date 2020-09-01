@@ -49,8 +49,8 @@ namespace BlazorApp4.Server.Controllers
                                               [FromQuery] long beforeTimestamp)
         {
 
-            DateTime after = DateTimeOffset.FromUnixTimeMilliseconds(afterTimestamp).DateTime;
-            DateTime before = DateTimeOffset.FromUnixTimeMilliseconds(beforeTimestamp).DateTime;
+            DateTime after = DateTimeOffset.FromUnixTimeMilliseconds(afterTimestamp).DateTime/*.SpecifyKind(dtDateTime, DateTimeKind.Local); */;
+            DateTime before = DateTimeOffset.FromUnixTimeMilliseconds(beforeTimestamp).DateTime/*.UtcNow.ToLocalTime()*/;
             // will be matched by e.g.
             // /api/1.0/availabilities?xCoordinate=34.3444&yCoordinate=66.3422
 
@@ -133,8 +133,25 @@ namespace BlazorApp4.Server.Controllers
             //Local için kodu örnek aldığım yer ;
             //DateTime myDate = DateTime.SpecifyKind(saveUtcNow, DateTimeKind.Utc); // 12/20/2015 12:17:18 PM  
             //DateTime myDate2 = DateTime.SpecifyKind(saveNow, DateTimeKind.Local); // 12/20/2015 5:47:17 PM  
-             //https://www.c-sharpcorner.com/article/datetime-in-c-sharp/
+            //https://www.c-sharpcorner.com/article/datetime-in-c-sharp/
 
+
+
+            //static void Main(string[] args)
+            //{
+            //    Console.WriteLine(ConvertToLocalDate("1579631400000").ToUniversalTime());
+
+            //    Console.ReadKey();
+            //}
+
+            //public static DateTime ConvertToLocalDate(string timeInMilliseconds)
+            //{
+            //    double timeInTicks = double.Parse(timeInMilliseconds);
+            //    TimeSpan dateTimeSpan = TimeSpan.FromMilliseconds(timeInTicks);
+            //    DateTime dateAfterEpoch = new DateTime(1970, 1, 1) + dateTimeSpan;
+            //    DateTime dateInLocalTimeFormat = dateAfterEpoch.ToLocalTime();
+            //    return dateInLocalTimeFormat;
+            //}
         }
     }
 }
