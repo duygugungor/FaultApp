@@ -273,7 +273,7 @@
       "url": "js\/bootstrap.min.js.map"
     },
     {
-      "hash": "sha256-VT+gKyUeGfiMOBbJVgBltmVhgfXco6HFbvOeq14UUiM=",
+      "hash": "sha256-DpUSsWVr27SmFkgeeOo20UlwHuoPtm2S04ZE7U4utZ0=",
       "url": "_framework\/_bin\/BlazorApp4.Client.dll"
     },
     {
@@ -521,7 +521,7 @@
       "url": "_framework\/_bin\/Microsoft.JSInterop.WebAssembly.dll"
     },
     {
-      "hash": "sha256-FzWvCA8FQR4URDYkPlkYjwr\/fT8cTl7z6t2M\/ZnGS5I=",
+      "hash": "sha256-xpTUxScXHhD9LM7SADrveKUEvPw9pET34w6gHX\/P5Fw=",
       "url": "_framework\/_bin\/BlazorApp4.Client.pdb"
     },
     {
@@ -549,9 +549,9 @@
       "url": "_framework\/blazor.webassembly.js"
     },
     {
-      "hash": "sha256-jMw0kiNnEpD0oXU8Qy3DAwSDBBTuqT4Msdlra0jnXo4=",
+      "hash": "sha256-t6JLUGbX9hgpyTZ9Npuu4BKSYkUADpR0mGvYLgm1m00=",
       "url": "_framework\/blazor.boot.json"
     }
   ],
-  "version": "qldGHoMv"
+  "version": "WIXETo\/d"
 };

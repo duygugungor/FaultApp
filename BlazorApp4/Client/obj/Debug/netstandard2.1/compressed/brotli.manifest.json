@@ -1,7 +1,7 @@
 {
   "FilesToCompress": [
     {
-      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\VT_gKyUeGfiMOBbJVgBltmVhgfXco6HFbvOeq14UUiM=.hash",
+      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\DpUSsWVr27SmFkgeeOo20UlwHuoPtm2S04ZE7U4utZ0=.hash",
       "Source": "C:\\Users\\Duygu GÜNGÖR\\source\\repos\\BlazorApp4\\BlazorApp4\\Client\\obj\\Debug\\netstandard2.1\\blazor\\unlinked\\BlazorApp4.Client.dll",
       "Target": "obj\\Debug\\netstandard2.1\\compressed\\_framework\/_bin\/BlazorApp4.Client.dll.br"
     },
@@ -311,7 +311,7 @@
       "Target": "obj\\Debug\\netstandard2.1\\compressed\\_framework\/_bin\/Microsoft.JSInterop.WebAssembly.dll.br"
     },
     {
-      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\FzWvCA8FQR4URDYkPlkYjwr-fT8cTl7z6t2M-ZnGS5I=.hash",
+      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\xpTUxScXHhD9LM7SADrveKUEvPw9pET34w6gHX-P5Fw=.hash",
       "Source": "C:\\Users\\Duygu GÜNGÖR\\source\\repos\\BlazorApp4\\BlazorApp4\\Client\\obj\\Debug\\netstandard2.1\\blazor\\unlinked\\BlazorApp4.Client.pdb",
       "Target": "obj\\Debug\\netstandard2.1\\compressed\\_framework\/_bin\/BlazorApp4.Client.pdb.br"
     },
@@ -346,12 +346,12 @@
       "Target": "obj\\Debug\\netstandard2.1\\compressed\\_framework\/blazor.webassembly.js.br"
     },
     {
-      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\jMw0kiNnEpD0oXU8Qy3DAwSDBBTuqT4Msdlra0jnXo4=.hash",
+      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\t6JLUGbX9hgpyTZ9Npuu4BKSYkUADpR0mGvYLgm1m00=.hash",
       "Source": "C:\\Users\\Duygu GÜNGÖR\\source\\repos\\BlazorApp4\\BlazorApp4\\Client\\obj\\Debug\\netstandard2.1\\blazor\\blazor.boot.json",
       "Target": "obj\\Debug\\netstandard2.1\\compressed\\_framework\/blazor.boot.json.br"
     },
     {
-      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\bwvwXnkiY6KFs-t-QldMAoMG9KhHZTsQJRF6bkee0HU=.hash",
+      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\Xs2CFIzPHrpQJw0JtrF6nMD_q7FiMHuwqElzcUSgVww=.hash",
       "Source": "C:\\Users\\Duygu GÜNGÖR\\source\\repos\\BlazorApp4\\BlazorApp4\\Client\\obj\\Debug\\netstandard2.1\\blazor\\service-worker-assets.js",
       "Target": "obj\\Debug\\netstandard2.1\\compressed\\service-worker-assets.js.br"
     }

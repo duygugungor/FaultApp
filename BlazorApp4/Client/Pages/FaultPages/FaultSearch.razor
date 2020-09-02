@@ -66,41 +66,42 @@ else if (faultList.Length == 0)
 }
 else
 {
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>Bölüm</th>
-                <th>Makina</th>
-                <th>Arıza Başlama Tarihi</th>
-                <th>Açıklama</th>
-                <th>Arıza Bitiş Tarihi</th>
-                <th>Yapılan İşlemler</th>
-                @*<th>Durum</th>*@
-            </tr>
-        </thead>
-        <tbody>
+    <Table Hoverable="true" Striped="true" Narrow="true">
+        <TableHeader ThemeContrast="ThemeContrast.Light">
+            <TableRow>
+                <TableHeaderCell>Bölüm</TableHeaderCell>
+                <TableHeaderCell>Makina</TableHeaderCell>
+                <TableHeaderCell>Arıza Başlama Tarihi</TableHeaderCell>
+                <TableHeaderCell>Açıklama</TableHeaderCell>
+                <TableHeaderCell>Arıza Bitiş Tarihi</TableHeaderCell>
+                <TableHeaderCell>Yapılan İşlemler</TableHeaderCell>
+                <TableHeaderCell>Durum</TableHeaderCell>
+                <TableHeaderCell></TableHeaderCell>
+            </TableRow>
+        </TableHeader>
+        <TableBody>
             @foreach (BlazorApp4.Shared.Models.Fault faul in faultList)
             {
                 if (faul.Status == BlazorApp4.Shared.Models.FaultStatus.FIXED){
-                <tr>
-                    <td>@faul.MakinaGrubu</td>
-                    <td>@faul.Makina</td>
-                    <td>@faul.CreatedTime</td>
-                    <td>@faul.Description</td>
+                <TableRow>
+                    <TableRowCell>@faul.MakinaGrubu</TableRowCell>
+                    <TableRowCell>@faul.Makina</TableRowCell>
+                    <TableRowCell>@faul.CreatedTime</TableRowCell>
+                    <TableRowCell>@faul.Description</TableRowCell>
                     
-                    <td>@(@faul.Status == BlazorApp4.Shared.Models.FaultStatus.FIXED ? @faul.FixedTime.ToString() : "-")</td>
-                    <td>@faul.FixDescription</td>
-                    <td>@statusLabel(@faul.Status.ToString())</td>
+                    <TableRowCell>@(@faul.Status == BlazorApp4.Shared.Models.FaultStatus.FIXED ? @faul.FixedTime.ToString() : "-")</TableRowCell>
+                    <TableRowCell>@faul.FixDescription</TableRowCell>
+                    <TableRowCell>@statusLabel(@faul.Status.ToString())</TableRowCell>
                     @*<td>
                             <a class="btn btn-success" href="/FaultListForm/@faul.Id">Edit</a>
                             <button class="btn btn-danger" @onclick="@(() => Delete(faul.Id))">Delete</button>
                         </td>*@
-                </tr>
+                </TableRow>
                 }
             }
 
-        </tbody>
-    </table>
+        </TableBody>
+    </Table>
 }
 
 @code {

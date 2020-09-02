@@ -6,18 +6,18 @@
 
 <h3>Mevcut Arıza Listesi</h3>
 @*<Alert Color="Color.Info" Visible="true">
-    <Heading Size="HeadingSize.Is4" TextColor="TextColor.Success">
-        Big one!
-        <CloseButton />
-    </Heading>
-    <Paragraph>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum.
-    </Paragraph>
-    <Paragraph>
-        <Button Color="Color.Info">Wanna do this</Button>
-        <Button Color="Color.Light">Or do this</Button>
-    </Paragraph>
-</Alert>*@
+        <Heading Size="HeadingSize.Is4" TextColor="TextColor.Success">
+            Big one!
+            <CloseButton />
+        </Heading>
+        <Paragraph>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum.
+        </Paragraph>
+        <Paragraph>
+            <Button Color="Color.Info">Wanna do this</Button>
+            <Button Color="Color.Light">Or do this</Button>
+        </Paragraph>
+    </Alert>*@
 <br>
 
 @if (faultList == null)
@@ -30,141 +30,143 @@ else if (faultList.Count == 0)
 }
 else
 {
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>Bölüm</th>
-                <th>Makina</th>
-                <th>Operatör</th>
-                <th>Tarih</th>
-                <th>Açıklama</th>
-                @*<th>Durum</th>*@
-            </tr>
-        </thead>
-        <tbody>
+
+    <Table Hoverable="true" Striped="true" Narrow="true">
+        <TableHeader ThemeContrast="ThemeContrast.Light">
+            <TableRow>
+                <TableHeaderCell>Bölüm</TableHeaderCell>
+                <TableHeaderCell>Makina</TableHeaderCell>
+                <TableHeaderCell>Operatör</TableHeaderCell>
+                <TableHeaderCell>Bildirim Tarihi</TableHeaderCell>
+                <TableHeaderCell>Açıklama</TableHeaderCell>
+                <TableHeaderCell>Durum</TableHeaderCell>
+            </TableRow>
+        </TableHeader>
+        <TableBody>
             @foreach (BlazorApp4.Shared.Models.Fault faul in faultList)
             {
                 @if (faul.Status == 0)
                 {
 
-                    <tr>
-                        <td>@faul.MakinaGrubu</td>
-                        <td>@faul.Makina</td>
-                        <td>@faul.Operator</td>
-                        <td>@faul.CreatedTime</td>
-                        <td>@faul.Description</td>
-                        @*<td>@statusLabel(@faul.Status.ToString())</td>*@
-                        <td>
+                    <TableRow>
+                        <TableRowCell>@faul.MakinaGrubu</TableRowCell>
+                        <TableRowCell>@faul.Makina</TableRowCell>
+                        <TableRowCell>@faul.Operator</TableRowCell>
+                        <TableRowCell>@faul.CreatedTime</TableRowCell>
+                        <TableRowCell>@faul.Description</TableRowCell>
+                        <td>@statusLabel(@faul.Status.ToString())</td>
+                        <TableRowCell>
                             <Button Color="Color.Warning" Clicked="@(e => GetFaultAndShowModal(faul.Id))">Bitir</Button>
 
-                        </td>
+                        </TableRowCell>
                         @*<td>
-                        <a class="btn btn-success" href="fault/edit/@faul.Id">Edit</a>
-                    </td>*@
+                                <a class="btn btn-success" href="fault/edit/@faul.Id">Edit</a>
+                            </td>*@
 
-                    </tr>
+                    </TableRow>
                 }
 
             }
 
-        </tbody>
-    </table>
-                    <Modal @ref="modalRef">
-    <ModalBackdrop />
-    <ModalContent IsCentered="true">
-        <ModalHeader>
-            <ModalTitle>Arıza Bitir</ModalTitle>
-            <CloseButton Clicked="@HideModal" />
-        </ModalHeader>
-        <ModalBody>
- 
-            <EditForm Model="@faultToEdit" OnValidSubmit="@EditFault">
-                <DataAnnotationsValidator />
-                <CardDeck>
-                    <Card>
+        </TableBody>
+    </Table>
+    <Modal @ref="modalRef">
+        <ModalBackdrop />
+        <ModalContent IsCentered="true">
+            <ModalHeader>
+                <ModalTitle>Arıza Bitir</ModalTitle>
+                <CloseButton Clicked="@HideModal" />
+                <Button Color="Color.Secondary" Clicked="@HideModal">Kapat</Button>
+            </ModalHeader>
+            <ModalBody>
 
-                        <CardBody>
+                <EditForm Model="@faultToEdit" OnValidSubmit="@EditFault">
+                    <DataAnnotationsValidator />
+                    <CardDeck>
+                        <Card>
 
-
-                            <label>Bölüm : </label>
-                            <TextEdit Disabled="true" Text="@faultToEdit.MakinaGrubu" />
+                            <CardBody>
 
 
-
-                            <label>Makina : </label>
-                            <TextEdit Disabled="true" Text="@faultToEdit.Makina" />
+                                <label>Bölüm : </label>
+                                <TextEdit Disabled="true" Text="@faultToEdit.MakinaGrubu" />
 
 
 
-
-                            <label>Operatör : </label>
-
-                            <TextEdit Disabled="true" Text="@faultToEdit.Operator" />
+                                <label>Makina : </label>
+                                <TextEdit Disabled="true" Text="@faultToEdit.Makina" />
 
 
-                            <label>Açıklama :</label>
 
 
-                            <TextEdit Disabled="true" Text="@faultToEdit.Description" />
+                                <label>Operatör : </label>
+
+                                <TextEdit Disabled="true" Text="@faultToEdit.Operator" />
 
 
-                            @*<button type="submit" class="btn btn-success" @onclick="(() => CreateFault())">
-                        Kaydet
-                    </button>*@
-                        </CardBody>
-                    </Card>
-                    <Card>
-                        <CardBody>
-                            <div>
+                                <label>Açıklama :</label>
+
+
+                                <TextEdit Disabled="true" Text="@faultToEdit.Description" />
+
+
+                                @*<button type="submit" class="btn btn-success" @onclick="(() => CreateFault())">
+                                        Kaydet
+                                    </button>*@
+                            </CardBody>
+                        </Card>
+                        <Card>
+                            <CardBody>
                                 <div>
                                     <div>
-                                        <label>Kullanıcı Adı</label>
+                                        <div>
+                                            <label>Kullanıcı Adı</label>
+                                        </div>
+
+                                        <InputText @bind-Value="@faultToEdit.FixBy">
+                                            @*<option value="">Lütfen Adınızı Giriniz...</option>*@
+                                        </InputText>
+                                    </div>
+                                    <div>
+                                        <div>
+                                            <label>Yapılan İşlemler</label>
+                                        </div>
+
+                                        <InputTextArea @bind-Value="@faultToEdit.FixDescription" rows="7" cols="42" />
+                                        @*<option value="">Lütfen Açıklama Giriniz...</option>*@
+                                    </div>
+                                    <div>
+                                        <div>
+
+                                            <label>Arıza Bitiş Tarih/Saat</label>
+                                        </div>
+
+                                        <input type="datetime-local" value="dateTime1" />
+                                        @*<InputDate @bind-Value="@dateTime1">
+
+                                            </InputDate>*@
                                     </div>
 
-                                    <InputText @bind-Value="@faultToEdit.FixBy">
-                                        @*<option value="">Lütfen Adınızı Giriniz...</option>*@
-                                    </InputText>
+                                    <hr />
+                                    @*<button type="submit" class="btn btn-success" @onclick="(() => EditFault())">
+                                            Kaydet
+                                        </button>*@
                                 </div>
-                                <div>
-                                    <div>
-                                        <label>Yapılan İşlemler</label>
-                                    </div>
-
-                                    <InputTextArea @bind-Value="@faultToEdit.FixDescription" rows="7" cols="42" />
-                                    @*<option value="">Lütfen Açıklama Giriniz...</option>*@
-                                </div>
-                                <div>
-                                    <div>
-
-                                        <label>Arıza Bitiş Tarih</label>
-                                    </div>
-  
-                                 
-                                <InputDate @bind-Value="@dateTime1">
-      
-                                    </InputDate>
-                                    </div>
-
-                                <hr />
-                                @*<button type="submit" class="btn btn-success" @onclick="(() => EditFault())">
-                            Kaydet
-                        </button>*@
-                            </div>
 
 
 
-                        </CardBody>
-                    </Card>
+                            </CardBody>
+                        </Card>
                     </CardDeck>
-            </EditForm>
-        </ModalBody>
-        <ModalFooter>
-            <Button Color="Color.Secondary" Clicked="@HideModal">Kapat</Button>
-            <Button Color="Color.Primary" Clicked="@(() => SaveChanges())">Kaydet</Button>
-        </ModalFooter>
-    </ModalContent>
-</Modal>
-    
+                </EditForm>
+            </ModalBody>
+            <ModalFooter>
+                @*<Button Color="Color.Secondary" Clicked="@HideModal">Kapat</Button>*@
+                <Button Color="Color.Primary" Clicked="@(() => SaveChanges())">Kaydet</Button>
+            </ModalFooter>
+        </ModalContent>
+    </Modal>
+
 
 }
 @code {
@@ -225,7 +227,7 @@ else
 
     }
 
-    async  Task SaveChanges()
+    async Task SaveChanges()
     {
         faultToEdit.Status = BlazorApp4.Shared.Models.FaultStatus.FIXED;
         faultToEdit.FixedTime = dateTime1;

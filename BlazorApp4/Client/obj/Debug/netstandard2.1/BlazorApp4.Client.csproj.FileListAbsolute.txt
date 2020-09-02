@@ -449,8 +449,8 @@ C:\Users\Duygu GÜNGÖR\source\repos\BlazorApp4\BlazorApp4\Client\obj\Debug\nets
 C:\Users\Duygu GÜNGÖR\source\repos\BlazorApp4\BlazorApp4\Client\obj\Debug\netstandard2.1\BlazorApp4.Client.pdb
 C:\Users\Duygu GÜNGÖR\source\repos\BlazorApp4\BlazorApp4\Client\obj\Debug\netstandard2.1\blazor\serviceworkers\wwwroot\service-worker.js
 C:\Users\Duygu GÜNGÖR\source\repos\BlazorApp4\BlazorApp4\Client\obj\Debug\netstandard2.1\blazor\service-worker-assets.js
-C:\Users\Duygu GÜNGÖR\source\repos\BlazorApp4\BlazorApp4\Client\obj\Debug\netstandard2.1\integrity\G2Vo6XZXxSkGCg_KW1yh080ded7zPjIrbjAkrrRK_vY=.hash
-C:\Users\Duygu GÜNGÖR\source\repos\BlazorApp4\BlazorApp4\Client\obj\Debug\netstandard2.1\integrity\VT_gKyUeGfiMOBbJVgBltmVhgfXco6HFbvOeq14UUiM=.hash
-C:\Users\Duygu GÜNGÖR\source\repos\BlazorApp4\BlazorApp4\Client\obj\Debug\netstandard2.1\integrity\FzWvCA8FQR4URDYkPlkYjwr-fT8cTl7z6t2M-ZnGS5I=.hash
-C:\Users\Duygu GÜNGÖR\source\repos\BlazorApp4\BlazorApp4\Client\obj\Debug\netstandard2.1\integrity\jMw0kiNnEpD0oXU8Qy3DAwSDBBTuqT4Msdlra0jnXo4=.hash
-C:\Users\Duygu GÜNGÖR\source\repos\BlazorApp4\BlazorApp4\Client\obj\Debug\netstandard2.1\integrity\bwvwXnkiY6KFs-t-QldMAoMG9KhHZTsQJRF6bkee0HU=.hash
+C:\Users\Duygu GÜNGÖR\source\repos\BlazorApp4\BlazorApp4\Client\obj\Debug\netstandard2.1\integrity\_XyoEAwpev_-Zt4DaBLucapgaLEhR7kZX0_Q8hA7QvM=.hash
+C:\Users\Duygu GÜNGÖR\source\repos\BlazorApp4\BlazorApp4\Client\obj\Debug\netstandard2.1\integrity\DpUSsWVr27SmFkgeeOo20UlwHuoPtm2S04ZE7U4utZ0=.hash
+C:\Users\Duygu GÜNGÖR\source\repos\BlazorApp4\BlazorApp4\Client\obj\Debug\netstandard2.1\integrity\xpTUxScXHhD9LM7SADrveKUEvPw9pET34w6gHX-P5Fw=.hash
+C:\Users\Duygu GÜNGÖR\source\repos\BlazorApp4\BlazorApp4\Client\obj\Debug\netstandard2.1\integrity\t6JLUGbX9hgpyTZ9Npuu4BKSYkUADpR0mGvYLgm1m00=.hash
+C:\Users\Duygu GÜNGÖR\source\repos\BlazorApp4\BlazorApp4\Client\obj\Debug\netstandard2.1\integrity\Xs2CFIzPHrpQJw0JtrF6nMD_q7FiMHuwqElzcUSgVww=.hash
