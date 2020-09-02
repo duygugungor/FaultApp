@@ -5,6 +5,9 @@
 @inject IJSRuntime js
 
 <h3>Mevcut Arıza Listesi</h3>
+<hr />
+<Button Clicked="@AddFault" Color="Color.Success"><Icon Name="IconName.PlusSquare" IconStyle="IconStyle.Light" />Yeni Ekle</Button>
+<br />
 @*<Alert Color="Color.Info" Visible="true">
         <Heading Size="HeadingSize.Is4" TextColor="TextColor.Success">
             Big one!
@@ -40,6 +43,8 @@ else
                 <TableHeaderCell>Bildirim Tarihi</TableHeaderCell>
                 <TableHeaderCell>Açıklama</TableHeaderCell>
                 <TableHeaderCell>Durum</TableHeaderCell>
+                <TableHeaderCell></TableHeaderCell>
+                <TableHeaderCell></TableHeaderCell>
             </TableRow>
         </TableHeader>
         <TableBody>
@@ -57,7 +62,9 @@ else
                         <td>@statusLabel(@faul.Status.ToString())</td>
                         <TableRowCell>
                             <Button Color="Color.Warning" Clicked="@(e => GetFaultAndShowModal(faul.Id))">Bitir</Button>
-
+                        </TableRowCell>
+                        <TableRowCell>
+                            <Button Color="Color.Danger" Clicked="@(e => GetFaultAndShowModal2(faul.Id))">İptal</Button>
                         </TableRowCell>
                         @*<td>
                                 <a class="btn btn-success" href="fault/edit/@faul.Id">Edit</a>
@@ -167,6 +174,103 @@ else
         </ModalContent>
     </Modal>
 
+    <Modal @ref="modalRefCancel">
+        <ModalBackdrop />
+        <ModalContent IsCentered="true">
+            <ModalHeader>
+                <ModalTitle>Arıza İptal</ModalTitle>
+                <CloseButton Clicked="@HideModal2" />
+                <Button Color="Color.Secondary" Clicked="@HideModal2">Kapat</Button>
+            </ModalHeader>
+            <ModalBody>
+
+                <EditForm Model="@faultToEdit" OnValidSubmit="@EditFault">
+                    <DataAnnotationsValidator />
+                    <CardDeck>
+                        <Card>
+
+                            <CardBody>
+
+
+                                <label>Bölüm : </label>
+                                <TextEdit Disabled="true" Text="@faultToEdit.MakinaGrubu" />
+
+
+
+                                <label>Makina : </label>
+                                <TextEdit Disabled="true" Text="@faultToEdit.Makina" />
+
+
+
+
+                                <label>Operatör : </label>
+
+                                <TextEdit Disabled="true" Text="@faultToEdit.Operator" />
+
+
+                                <label>Açıklama :</label>
+
+
+                                <TextEdit Disabled="true" Text="@faultToEdit.Description" />
+
+
+                                @*<button type="submit" class="btn btn-success" @onclick="(() => CreateFault())">
+                                        Kaydet
+                                    </button>*@
+                            </CardBody>
+                        </Card>
+                        <Card>
+                            <CardBody>
+                                <div>
+                                    <div>
+                                        <div>
+                                            <label>Kullanıcı Adı</label>
+                                        </div>
+
+                                        <InputText @bind-Value="@faultToEdit.FixBy">
+                                            @*<option value="">Lütfen Adınızı Giriniz...</option>*@
+                                        </InputText>
+                                    </div>
+                                    <div>
+                                        <div>
+                                            <label>İptal Nedeni</label>
+                                        </div>
+
+                                        <InputTextArea @bind-Value="@faultToEdit.FixDescription" rows="7" cols="42" />
+                                        @*<option value="">Lütfen Açıklama Giriniz...</option>*@
+                                    </div>
+                                    <div>
+                                        <div>
+
+                                            <label>Arıza İptal Tarih/Saat</label>
+                                        </div>
+
+                                        <input type="datetime-local" value="dateTime1" />
+                                        @*<InputDate @bind-Value="@dateTime1">
+
+                                            </InputDate>*@
+                                    </div>
+
+                                    <hr />
+                                    @*<button type="submit" class="btn btn-success" @onclick="(() => EditFault())">
+                                            Kaydet
+                                        </button>*@
+                                </div>
+
+
+
+                            </CardBody>
+                        </Card>
+                    </CardDeck>
+                </EditForm>
+            </ModalBody>
+            <ModalFooter>
+                @*<Button Color="Color.Secondary" Clicked="@HideModal">Kapat</Button>*@
+                <Button Color="Color.Primary" Clicked="@(() => SaveChanges2())">Kaydet</Button>
+            </ModalFooter>
+        </ModalContent>
+    </Modal>
+
 
 }
 @code {
@@ -215,12 +319,18 @@ else
     }
 
     private Modal modalRef;
-
+    private Modal modalRefCancel;
     private void ShowModal()
     {
 
         //   selectedFault = fault;
         modalRef.Show();
+    }
+    private void ShowModal2()
+    {
+
+        //   selectedFault = fault;
+        modalRefCancel.Show();
     }
     private void EditFault()
     {
@@ -233,19 +343,43 @@ else
         faultToEdit.FixedTime = dateTime1;
         await http.PutAsJsonAsync($"api/fault", faultToEdit);
         modalRef.Hide();
-
-
     }
+
+    async Task SaveChanges2()
+    {
+        faultToEdit.Status = BlazorApp4.Shared.Models.FaultStatus.CANCELED;
+        faultToEdit.FixedTime = dateTime1;
+        await http.PutAsJsonAsync($"api/fault", faultToEdit);
+        modalRefCancel.Hide();
+    }
+
     private void HideModal()
     {
         selectedFault = null;
         modalRef.Hide();
     }
+    private void HideModal2()
+    {
+        selectedFault = null;
+        modalRefCancel.Hide();
+    }
 
     public async void GetFaultAndShowModal(int id)
     {
+       
         faultToEdit = await http.GetFromJsonAsync<BlazorApp4.Shared.Models.Fault>($"api/fault/{id}");
         ShowModal();
+    }
+    public async void GetFaultAndShowModal2(int id)
+    {
+        faultToEdit = await http.GetFromJsonAsync<BlazorApp4.Shared.Models.Fault>($"api/fault/{id}");
+        ShowModal2();
+    }
+
+
+    public void AddFault()
+    {
+        uriHelper.NavigateTo("fault/create");
     }
 
 }
