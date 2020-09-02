@@ -46,8 +46,8 @@ namespace BlazorApp4.Server.Controllers
         [HttpGet]
         [Route("query")] // <- no route parameters specified
         public IActionResult filterByParameters([FromQuery] long afterTimestamp,
-                                              [FromQuery] long beforeTimestamp,
-                                              [FromQuery] string status)
+                                              [FromQuery] long beforeTimestamp/*,*/
+                                              /*[FromQuery] string status*/)
         {
 
             DateTime after = DateTimeOffset.FromUnixTimeMilliseconds(afterTimestamp).DateTime/*.SpecifyKind(dtDateTime, DateTimeKind.Local); */;
@@ -62,11 +62,11 @@ namespace BlazorApp4.Server.Controllers
 ;
             _faults = _context.Faults.Where(p => DateTime.Compare(p.CreatedTime, after) > 0 && DateTime.Compare(p.CreatedTime, before) < 0).ToList();
 
-            if (status != "DEFAULT")
-            {
-                FaultStatus faultStatus = (FaultStatus) Enum.Parse(typeof (FaultStatus), status);
-                _faults = _faults.Where(p => p.Status == faultStatus).ToList();
-            }
+            //if (status != "DEFAULT")
+            //{
+            //    FaultStatus faultStatus = (FaultStatus) Enum.Parse(typeof (FaultStatus), status);
+            //    _faults = _faults.Where(p => p.Status == faultStatus).ToList();
+            //}
             //_fault = _context.Faults.Where(p => p.Id == 1).SingleOrDefault();
             //_context.Entry(_fault).State = EntityState.Added;
             //_context.Entry(_fault).State = EntityState.Modified;

@@ -7,7 +7,7 @@ using System.Text;
 
 namespace BlazorApp4.Shared.Models
 {
-    public class Fault :DBContact
+    public class Fault 
     {
       
         [Required()]
@@ -17,7 +17,8 @@ namespace BlazorApp4.Shared.Models
         [Required()]
         public string Makina { get; set; }
         public string Operator { get; set; }
-        //public DateTime Tarih { get; set; }
+        
+        //public DateTime Tarih { get; set; } = DateTime.Now;
         public string Description { get; set; }
         public DateTime CreatedTime { get; set; } = DateTime.Now;
 

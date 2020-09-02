@@ -17,12 +17,12 @@
         <input id="dp1" type="date" @bind="dp1" />
         <input id="dp2" type="date" @bind="dp2" />
 
-        <InputSelect @bind-Value="@faultStatus">
+        @*<InputSelect @bind-Value="@faultStatus">
             <option value="">Lütfen Seçin</option>
             <option value="@BlazorApp4.Shared.Models.FaultStatus.DEFAULT">Hepsi</option>
             <option value="@BlazorApp4.Shared.Models.FaultStatus.REPORTED">Bekleyen</option>
             <option value="@BlazorApp4.Shared.Models.FaultStatus.FIXED">Biten</option>
-        </InputSelect>
+        </InputSelect>*@
        
 
         <select value="@fault.MakinaGrubu" @onchange="@DoStuff">
@@ -81,6 +81,7 @@ else
         <tbody>
             @foreach (BlazorApp4.Shared.Models.Fault faul in faultList)
             {
+                if (faul.Status == BlazorApp4.Shared.Models.FaultStatus.FIXED){
                 <tr>
                     <td>@faul.MakinaGrubu</td>
                     <td>@faul.Makina</td>
@@ -89,12 +90,13 @@ else
                     
                     <td>@(@faul.Status == BlazorApp4.Shared.Models.FaultStatus.FIXED ? @faul.FixedTime.ToString() : "-")</td>
                     <td>@faul.FixDescription</td>
-                    @*<td>@statusLabel(@faul.Status.ToString())</td>*@
+                    <td>@statusLabel(@faul.Status.ToString())</td>
                     @*<td>
                             <a class="btn btn-success" href="/FaultListForm/@faul.Id">Edit</a>
                             <button class="btn btn-danger" @onclick="@(() => Delete(faul.Id))">Delete</button>
                         </td>*@
                 </tr>
+                }
             }
 
         </tbody>
@@ -142,16 +144,16 @@ new Dictionary<String, List<String>>()
         makina = machineList.ContainsKey(kafamdakiMakina) ? machineList[kafamdakiMakina] : new List<String>() { "Liste Yüklenemedi" };
 
     }
-    public DateTime dp1 = DateTime.SpecifyKind(DateTime.Now,DateTimeKind.Local);
-    public DateTime dp2 = DateTime.SpecifyKind(DateTime.Now, DateTimeKind.Local);
+    public DateTime dp1 = DateTime.SpecifyKind(DateTime.Today, DateTimeKind.Local);
+    public DateTime dp2 = DateTime.SpecifyKind(DateTime.Today, DateTimeKind.Local);
 
 
     async void Click(MouseEventArgs args, string buttonName)
     {
         long after = ((DateTimeOffset)dp1).ToUnixTimeMilliseconds()+10800000;
-        long before = ((DateTimeOffset)dp2).ToUnixTimeMilliseconds()+10800000;
+        long before = ((DateTimeOffset)dp2).ToUnixTimeMilliseconds()+97199000;
 
-        var url = "api/fault/query?afterTimestamp=" + after.ToString() + "&beforeTimestamp=" + before.ToString() +"&status=" +faultStatus.ToString() ;
+        var url = "api/fault/query?afterTimestamp=" + after.ToString() + "&beforeTimestamp=" + before.ToString() /*+"&status=" +faultStatus.ToString()*/ ;
         faultList = await client.GetFromJsonAsync<BlazorApp4.Shared.Models.Fault[]>(url);
         Console.WriteLine(faultList);
     }
