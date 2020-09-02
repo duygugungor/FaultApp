@@ -6,7 +6,8 @@ namespace BlazorApp4.Shared.Models
     {
         REPORTED,
         FIXING,
-        FIXED
+        FIXED,
+        DEFAULT
         
     }
 }

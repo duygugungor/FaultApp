@@ -159,18 +159,18 @@ else
             </EditForm>
         </ModalBody>
         <ModalFooter>
-            <Button Color="Color.Secondary" Clicked="@(()=>SaveChanges())">Kapat</Button>
-            <Button Color="Color.Primary" Clicked="@HideModal">Kaydet</Button>
+            <Button Color="Color.Secondary" Clicked="@HideModal">Kapat</Button>
+            <Button Color="Color.Primary" Clicked="@(() => SaveChanges())">Kaydet</Button>
         </ModalFooter>
     </ModalContent>
 </Modal>
-
+    
 
 }
 @code {
 
-    public DateTime? dateTime1 = DateTime.Now;
- 
+    public DateTime dateTime1 = DateTime.Now;
+
 
 
 
@@ -227,9 +227,11 @@ else
 
     async  Task SaveChanges()
     {
-        await http.PostAsJsonAsync($"api/fault", faultToEdit);
+        faultToEdit.Status = BlazorApp4.Shared.Models.FaultStatus.FIXED;
+        faultToEdit.FixedTime = dateTime1;
+        await http.PutAsJsonAsync($"api/fault", faultToEdit);
         modalRef.Hide();
-        return ;
+
 
     }
     private void HideModal()

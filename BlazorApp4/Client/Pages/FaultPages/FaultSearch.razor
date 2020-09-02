@@ -17,26 +17,32 @@
         <input id="dp1" type="date" @bind="dp1" />
         <input id="dp2" type="date" @bind="dp2" />
 
-        @*<InputSelect @bind-Value="@StatusView"/>*@
+        <InputSelect @bind-Value="@faultStatus">
+            <option value="">Lütfen Seçin</option>
+            <option value="@BlazorApp4.Shared.Models.FaultStatus.DEFAULT">Hepsi</option>
+            <option value="@BlazorApp4.Shared.Models.FaultStatus.REPORTED">Bekleyen</option>
+            <option value="@BlazorApp4.Shared.Models.FaultStatus.FIXED">Biten</option>
+        </InputSelect>
+       
 
-            <select value="@fault.MakinaGrubu" @onchange="@DoStuff">
-                <option value="">Lütfen Seçiniz</option>
-                @foreach (var item in machineList.Keys)
-                {
-                    <option value="@item">@item</option>
-                }
-            </select>
-            <ValidationMessage For="@(() => fault.MakinaGrubu)" />
+        <select value="@fault.MakinaGrubu" @onchange="@DoStuff">
+            <option value="">Lütfen Seçiniz</option>
+            @foreach (var item in machineList.Keys)
+            {
+                <option value="@item">@item</option>
+            }
+        </select>
+        <ValidationMessage For="@(() => fault.MakinaGrubu)" />
 
-            <InputSelect @bind-Value="@fault.Makina">
-                <option value="">Lütfen Seçiniz</option>
-                @foreach (var item in makina)
-                {
+        <InputSelect @bind-Value="@fault.Makina">
+            <option value="">Lütfen Seçiniz</option>
+            @foreach (var item in makina)
+            {
 
-                    <option value="@item">@item</option>
-                }
-            </InputSelect>
-            <ValidationMessage For="@(() => fault.Makina)" />
+                <option value="@item">@item</option>
+            }
+        </InputSelect>
+        <ValidationMessage For="@(() => fault.Makina)" />
 
     </div>
     <br />
@@ -80,7 +86,8 @@ else
                     <td>@faul.Makina</td>
                     <td>@faul.CreatedTime</td>
                     <td>@faul.Description</td>
-                    <td>@faul.FixedTime</td>
+                    
+                    <td>@(@faul.Status == BlazorApp4.Shared.Models.FaultStatus.FIXED ? @faul.FixedTime.ToString() : "-")</td>
                     <td>@faul.FixDescription</td>
                     @*<td>@statusLabel(@faul.Status.ToString())</td>*@
                     @*<td>
@@ -96,7 +103,7 @@ else
 
 @code {
 
-
+    [Parameter] public BlazorApp4.Shared.Models.FaultStatus faultStatus { get; set; }
     [Parameter] public BlazorApp4.Shared.Models.Fault fault { get; set; } = new BlazorApp4.Shared.Models.Fault();
 
     BlazorApp4.Shared.Models.Fault[] faultList { get; set; }
@@ -135,16 +142,16 @@ new Dictionary<String, List<String>>()
         makina = machineList.ContainsKey(kafamdakiMakina) ? machineList[kafamdakiMakina] : new List<String>() { "Liste Yüklenemedi" };
 
     }
-    public DateTime dp1 = DateTime.Now;
-    public DateTime dp2 = DateTime.Now;
+    public DateTime dp1 = DateTime.SpecifyKind(DateTime.Now,DateTimeKind.Local);
+    public DateTime dp2 = DateTime.SpecifyKind(DateTime.Now, DateTimeKind.Local);
 
 
     async void Click(MouseEventArgs args, string buttonName)
     {
-        long after = ((DateTimeOffset)dp1).ToUnixTimeMilliseconds();
-        long before = ((DateTimeOffset)dp2).ToUnixTimeMilliseconds();
+        long after = ((DateTimeOffset)dp1).ToUnixTimeMilliseconds()+10800000;
+        long before = ((DateTimeOffset)dp2).ToUnixTimeMilliseconds()+10800000;
 
-        var url = "api/fault/query?afterTimestamp=" + after.ToString() + "&beforeTimestamp=" + before.ToString();
+        var url = "api/fault/query?afterTimestamp=" + after.ToString() + "&beforeTimestamp=" + before.ToString() +"&status=" +faultStatus.ToString() ;
         faultList = await client.GetFromJsonAsync<BlazorApp4.Shared.Models.Fault[]>(url);
         Console.WriteLine(faultList);
     }
