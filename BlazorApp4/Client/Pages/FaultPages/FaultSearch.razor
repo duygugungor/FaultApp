@@ -12,42 +12,53 @@
 <EditForm Model="@fault">
     <DataAnnotationsValidator />
 
-    <div>
+    <div class="container">
+        <div class="row  justify-content-md-center">
+            <div class="col">Başlangıç Tarihi</div>
+            <div class="col">Bitiş Tarihi</div>
+            <div class="col">Bölüm</div>
+            <div class="col">Makina</div>
+            </div>
+            <div class="row  justify-content-md-center">
+                <div class="col">
+                    <input class="form-control" id="dp1" type="date" @bind="dp1" />
+                </div>
+                <div class="col">
+                    <input class="form-control" id="dp2" type="date" @bind="dp2" />
+                </div>
+                @*<InputSelect @bind-Value="@faultStatus">
+                <option value="">Lütfen Seçin</option>
+                <option value="@BlazorApp4.Shared.Models.FaultStatus.DEFAULT">Hepsi</option>
+                <option value="@BlazorApp4.Shared.Models.FaultStatus.REPORTED">Bekleyen</option>
+                <option value="@BlazorApp4.Shared.Models.FaultStatus.FIXED">Biten</option>
+            </InputSelect>*@
 
-        <input id="dp1" type="date" @bind="dp1" />
-        <input id="dp2" type="date" @bind="dp2" />
+                <div class="col">
+                    <select class="browser-default custom-select" value="@fault.MakinaGrubu" @onchange="@DoStuff">
+                        <option value="">Lütfen Seçiniz</option>
+                        @foreach (var item in machineList.Keys)
+                        {
+                            <option value="@item">@item</option>
+                        }
+                    </select>
+                    <ValidationMessage For="@(() => fault.MakinaGrubu)" />
+                </div>
+                <div class="col">
+                    <select class="browser-default custom-select" value="@fault.Makina">
+                        <option value="">Lütfen Seçiniz</option>
+                        @foreach (var item in makina)
+                        {
 
-        @*<InputSelect @bind-Value="@faultStatus">
-            <option value="">Lütfen Seçin</option>
-            <option value="@BlazorApp4.Shared.Models.FaultStatus.DEFAULT">Hepsi</option>
-            <option value="@BlazorApp4.Shared.Models.FaultStatus.REPORTED">Bekleyen</option>
-            <option value="@BlazorApp4.Shared.Models.FaultStatus.FIXED">Biten</option>
-        </InputSelect>*@
-       
-
-        <select value="@fault.MakinaGrubu" @onchange="@DoStuff">
-            <option value="">Lütfen Seçiniz</option>
-            @foreach (var item in machineList.Keys)
-            {
-                <option value="@item">@item</option>
-            }
-        </select>
-        <ValidationMessage For="@(() => fault.MakinaGrubu)" />
-
-        <InputSelect @bind-Value="@fault.Makina">
-            <option value="">Lütfen Seçiniz</option>
-            @foreach (var item in makina)
-            {
-
-                <option value="@item">@item</option>
-            }
-        </InputSelect>
-        <ValidationMessage For="@(() => fault.Makina)" />
-
-    </div>
-    <br />
-    <Radzen.Blazor.RadzenButton Click="@((args) => Click(args, "Button with text"))" Text="Sorgula" Style="margin-bottom: 20px; width: 150px" />
-    <br />
+                            <option value="@item">@item</option>
+                        }
+                    </select>
+                    <ValidationMessage For="@(() => fault.Makina)" />
+                </div>
+            </div>
+        </div>
+            <br />
+            <Radzen.Blazor.RadzenButton Click="@((args) => Click(args, "Button with text"))" Text="Sorgula" Style="margin-bottom: 20px; width: 150px" />
+            <br />
 
 </EditForm>
 
@@ -66,16 +77,17 @@ else if (faultList.Length == 0)
 }
 else
 {
-    <Table Hoverable="true" Striped="true" Narrow="true">
+    <Table Hoverable="true"  Narrow="true">
         <TableHeader ThemeContrast="ThemeContrast.Light">
             <TableRow>
                 <TableHeaderCell>Bölüm</TableHeaderCell>
                 <TableHeaderCell>Makina</TableHeaderCell>
-                <TableHeaderCell>Arıza Başlama Tarihi</TableHeaderCell>
+                <TableHeaderCell>Bildirim Tarihi</TableHeaderCell>
+                <TableHeaderCell>Başlama Tarihi</TableHeaderCell>
                 <TableHeaderCell>Açıklama</TableHeaderCell>
-                <TableHeaderCell>Arıza Bitiş Tarihi</TableHeaderCell>
+                <TableHeaderCell>Bitiş Tarihi</TableHeaderCell>
                 <TableHeaderCell>Yapılan İşlemler</TableHeaderCell>
-                <TableHeaderCell>Durum</TableHeaderCell>
+               @* <TableHeaderCell>Durum</TableHeaderCell>*@
                 <TableHeaderCell></TableHeaderCell>
             </TableRow>
         </TableHeader>
@@ -83,20 +95,21 @@ else
             @foreach (BlazorApp4.Shared.Models.Fault faul in faultList)
             {
                 if (faul.Status == BlazorApp4.Shared.Models.FaultStatus.FIXED){
-                <TableRow>
-                    <TableRowCell>@faul.MakinaGrubu</TableRowCell>
-                    <TableRowCell>@faul.Makina</TableRowCell>
-                    <TableRowCell>@faul.CreatedTime</TableRowCell>
-                    <TableRowCell>@faul.Description</TableRowCell>
-                    
-                    <TableRowCell>@(@faul.Status == BlazorApp4.Shared.Models.FaultStatus.FIXED ? @faul.FixedTime.ToString() : "-")</TableRowCell>
-                    <TableRowCell>@faul.FixDescription</TableRowCell>
-                    <TableRowCell>@statusLabel(@faul.Status.ToString())</TableRowCell>
-                    @*<td>
-                            <a class="btn btn-success" href="/FaultListForm/@faul.Id">Edit</a>
-                            <button class="btn btn-danger" @onclick="@(() => Delete(faul.Id))">Delete</button>
-                        </td>*@
-                </TableRow>
+            <TableRow>
+                <TableRowCell>@faul.MakinaGrubu</TableRowCell>
+                <TableRowCell>@faul.Makina</TableRowCell>
+                <TableRowCell>@faul.RecordTime</TableRowCell>
+                <TableRowCell>@faul.CreatedTime</TableRowCell>
+                <TableRowCell>@faul.Description</TableRowCell>
+                <TableRowCell>@faul.FixedTime</TableRowCell>
+                @*<TableRowCell>@(@faul.Status == BlazorApp4.Shared.Models.FaultStatus.FIXED ? @faul.FixedTime.ToString() : "-")</TableRowCell>*@
+                <TableRowCell>@faul.FixDescription</TableRowCell>
+                @*<TableRowCell>@statusLabel(@faul.Status.ToString())</TableRowCell>*@
+                @*<td>
+            <a class="btn btn-success" href="/FaultListForm/@faul.Id">Edit</a>
+            <button class="btn btn-danger" @onclick="@(() => Delete(faul.Id))">Delete</button>
+        </td>*@
+            </TableRow>
                 }
             }
 

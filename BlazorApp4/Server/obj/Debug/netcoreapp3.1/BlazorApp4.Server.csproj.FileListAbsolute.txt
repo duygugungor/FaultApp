@@ -1,3 +1,9 @@
+C:\Users\Duygu GÜNGÖR\source\repos\BlazorApp4\BlazorApp4\Server\obj\Debug\netcoreapp3.1\BlazorApp4.Server.AssemblyInfoInputs.cache
+C:\Users\Duygu GÜNGÖR\source\repos\BlazorApp4\BlazorApp4\Server\obj\Debug\netcoreapp3.1\BlazorApp4.Server.AssemblyInfo.cs
+C:\Users\Duygu GÜNGÖR\source\repos\BlazorApp4\BlazorApp4\Server\obj\Debug\netcoreapp3.1\BlazorApp4.Server.csproj.CoreCompileInputs.cache
+C:\Users\Duygu GÜNGÖR\source\repos\BlazorApp4\BlazorApp4\Server\obj\Debug\netcoreapp3.1\BlazorApp4.Server.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Duygu GÜNGÖR\source\repos\BlazorApp4\BlazorApp4\Server\obj\Debug\netcoreapp3.1\BlazorApp4.Server.RazorAssemblyInfo.cache
+C:\Users\Duygu GÜNGÖR\source\repos\BlazorApp4\BlazorApp4\Server\obj\Debug\netcoreapp3.1\BlazorApp4.Server.RazorAssemblyInfo.cs
 C:\Users\Duygu GÜNGÖR\source\repos\BlazorApp4\BlazorApp4\Server\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
 C:\Users\Duygu GÜNGÖR\source\repos\BlazorApp4\BlazorApp4\Server\bin\Debug\netcoreapp3.1\BlazorApp4.Client.StaticWebAssets.xml
 C:\Users\Duygu GÜNGÖR\source\repos\BlazorApp4\BlazorApp4\Server\bin\Debug\netcoreapp3.1\appsettings.Development.json
@@ -237,12 +243,6 @@ C:\Users\Duygu GÜNGÖR\source\repos\BlazorApp4\BlazorApp4\Server\bin\Debug\netc
 C:\Users\Duygu GÜNGÖR\source\repos\BlazorApp4\BlazorApp4\Server\bin\Debug\netcoreapp3.1\BlazorApp4.Client.pdb
 C:\Users\Duygu GÜNGÖR\source\repos\BlazorApp4\BlazorApp4\Server\bin\Debug\netcoreapp3.1\BlazorApp4.Shared.pdb
 C:\Users\Duygu GÜNGÖR\source\repos\BlazorApp4\BlazorApp4\Server\obj\Debug\netcoreapp3.1\BlazorApp4.Server.csprojAssemblyReference.cache
-C:\Users\Duygu GÜNGÖR\source\repos\BlazorApp4\BlazorApp4\Server\obj\Debug\netcoreapp3.1\BlazorApp4.Server.AssemblyInfoInputs.cache
-C:\Users\Duygu GÜNGÖR\source\repos\BlazorApp4\BlazorApp4\Server\obj\Debug\netcoreapp3.1\BlazorApp4.Server.AssemblyInfo.cs
-C:\Users\Duygu GÜNGÖR\source\repos\BlazorApp4\BlazorApp4\Server\obj\Debug\netcoreapp3.1\BlazorApp4.Server.csproj.CoreCompileInputs.cache
-C:\Users\Duygu GÜNGÖR\source\repos\BlazorApp4\BlazorApp4\Server\obj\Debug\netcoreapp3.1\BlazorApp4.Server.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\Duygu GÜNGÖR\source\repos\BlazorApp4\BlazorApp4\Server\obj\Debug\netcoreapp3.1\BlazorApp4.Server.RazorAssemblyInfo.cache
-C:\Users\Duygu GÜNGÖR\source\repos\BlazorApp4\BlazorApp4\Server\obj\Debug\netcoreapp3.1\BlazorApp4.Server.RazorAssemblyInfo.cs
 C:\Users\Duygu GÜNGÖR\source\repos\BlazorApp4\BlazorApp4\Server\obj\Debug\netcoreapp3.1\BlazorApp4.Server.TagHelpers.input.cache
 C:\Users\Duygu GÜNGÖR\source\repos\BlazorApp4\BlazorApp4\Server\obj\Debug\netcoreapp3.1\BlazorApp4.Server.TagHelpers.output.cache
 C:\Users\Duygu GÜNGÖR\source\repos\BlazorApp4\BlazorApp4\Server\obj\Debug\netcoreapp3.1\BlazorApp4.Server.RazorCoreGenerate.cache

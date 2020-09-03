@@ -34,15 +34,16 @@ else if (faultList.Count == 0)
 else
 {
 
-    <Table Hoverable="true" Striped="true" Narrow="true">
-        <TableHeader ThemeContrast="ThemeContrast.Light">
+    <Table Class="table-responsive" Hoverable="true" Narrow="true">
+        <TableHeader Class="col-sm-auto" ThemeContrast="ThemeContrast.Light">
             <TableRow>
                 <TableHeaderCell>Bölüm</TableHeaderCell>
                 <TableHeaderCell>Makina</TableHeaderCell>
                 <TableHeaderCell>Operatör</TableHeaderCell>
+                <TableHeaderCell>Başlama Tarihi</TableHeaderCell>
                 <TableHeaderCell>Bildirim Tarihi</TableHeaderCell>
-                <TableHeaderCell>Açıklama</TableHeaderCell>
-                <TableHeaderCell>Durum</TableHeaderCell>
+                <TableHeaderCell Class="col-md-2">Açıklama</TableHeaderCell>
+                @*<TableHeaderCell>Durum</TableHeaderCell>*@
                 <TableHeaderCell></TableHeaderCell>
                 <TableHeaderCell></TableHeaderCell>
             </TableRow>
@@ -53,24 +54,25 @@ else
                 @if (faul.Status == 0)
                 {
 
-                    <TableRow>
-                        <TableRowCell>@faul.MakinaGrubu</TableRowCell>
-                        <TableRowCell>@faul.Makina</TableRowCell>
-                        <TableRowCell>@faul.Operator</TableRowCell>
-                        <TableRowCell>@faul.CreatedTime</TableRowCell>
-                        <TableRowCell>@faul.Description</TableRowCell>
-                        <td>@statusLabel(@faul.Status.ToString())</td>
-                        <TableRowCell>
-                            <Button Color="Color.Warning" Clicked="@(e => GetFaultAndShowModal(faul.Id))">Bitir</Button>
-                        </TableRowCell>
-                        <TableRowCell>
-                            <Button Color="Color.Danger" Clicked="@(e => GetFaultAndShowModal2(faul.Id))">İptal</Button>
-                        </TableRowCell>
-                        @*<td>
-                                <a class="btn btn-success" href="fault/edit/@faul.Id">Edit</a>
-                            </td>*@
+            <TableRow>
+                <TableRowCell>@faul.MakinaGrubu</TableRowCell>
+                <TableRowCell>@faul.Makina</TableRowCell>
+                <TableRowCell>@faul.Operator</TableRowCell>
+                <TableRowCell>@faul.CreatedTime</TableRowCell>
+                <TableRowCell>@faul.RecordTime</TableRowCell>
+                <TableRowCell>@faul.Description</TableRowCell>
+                @*<td>@statusLabel(@faul.Status.ToString())</td>*@
+                <TableRowCell>
+                    <Button Color="Color.Warning" Clicked="@(e => GetFaultAndShowModal(faul.Id))">Bitir</Button>
+                </TableRowCell>
+                <TableRowCell>
+                    <Button Color="Color.Danger" Clicked="@(e => GetFaultAndShowModal2(faul.Id))">İptal</Button>
+                </TableRowCell>
+                @*<td>
+            <a class="btn btn-success" href="fault/edit/@faul.Id">Edit</a>
+        </td>*@
 
-                    </TableRow>
+            </TableRow>
                 }
 
             }
@@ -342,6 +344,7 @@ else
         faultToEdit.Status = BlazorApp4.Shared.Models.FaultStatus.FIXED;
         faultToEdit.FixedTime = dateTime1;
         await http.PutAsJsonAsync($"api/fault", faultToEdit);
+        faultList = await client.GetFromJsonAsync<List<BlazorApp4.Shared.Models.Fault>>("api/fault");
         modalRef.Hide();
     }
 
@@ -350,23 +353,26 @@ else
         faultToEdit.Status = BlazorApp4.Shared.Models.FaultStatus.CANCELED;
         faultToEdit.FixedTime = dateTime1;
         await http.PutAsJsonAsync($"api/fault", faultToEdit);
+        faultList = await client.GetFromJsonAsync<List<BlazorApp4.Shared.Models.Fault>>("api/fault");
         modalRefCancel.Hide();
     }
 
-    private void HideModal()
+    private  void HideModal()
     {
         selectedFault = null;
+
         modalRef.Hide();
     }
-    private void HideModal2()
+    private  void HideModal2()
     {
         selectedFault = null;
+
         modalRefCancel.Hide();
     }
 
     public async void GetFaultAndShowModal(int id)
     {
-       
+
         faultToEdit = await http.GetFromJsonAsync<BlazorApp4.Shared.Models.Fault>($"api/fault/{id}");
         ShowModal();
     }

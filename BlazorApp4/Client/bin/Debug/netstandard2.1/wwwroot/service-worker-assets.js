@@ -129,7 +129,7 @@
       "url": "_content\/Blazorise.Bootstrap\/blazorise.bootstrap.js"
     },
     {
-      "hash": "sha256-BHNhq10T\/9aejlrFEhS\/NYeYS3Djwv\/pqg2xUjQCx\/s=",
+      "hash": "sha256-1eMA72I28f8kdiJWE8taIrDQ3QNTuSAQBl3QUxJGHIo=",
       "url": "css\/app.css"
     },
     {
@@ -145,7 +145,7 @@
       "url": "css\/open-iconic\/FONT-LICENSE"
     },
     {
-      "hash": "sha256-BJ\/G+e+y7bQdrYkS2RBTyNfBHpA9IuGaPmf9htub5MQ=",
+      "hash": "sha256-I8owsUZbuUN5BvUUFmhK8ZEGL6YVzz54pRbUxTmATHI=",
       "url": "css\/open-iconic\/font\/css\/open-iconic-bootstrap.min.css"
     },
     {
@@ -185,7 +185,7 @@
       "url": "icon-512.png"
     },
     {
-      "hash": "sha256-LjhDZi67VpCgC\/TZWvjkGEfAzw1+74\/MbXPnmEh0AUQ=",
+      "hash": "sha256-1nmcQrbRqKWac7HpzajeWZjlFsJbeN9pCDfWBIgEq+w=",
       "url": "index.html"
     },
     {
@@ -225,7 +225,7 @@
       "url": "css\/bootstrap-reboot.min.css.map"
     },
     {
-      "hash": "sha256-U4\/KO1UcznrxXkhqDvWEvIdZm2bvRM2vwFsL69iouII=",
+      "hash": "sha256-btHkkLhadbHtsnd7tUv4CUQoGTnbqD9yKYz0bxcipOk=",
       "url": "css\/bootstrap.css"
     },
     {
@@ -273,7 +273,7 @@
       "url": "js\/bootstrap.min.js.map"
     },
     {
-      "hash": "sha256-xdQK66xCw8DZimR48VFQ65+RaacNh\/eoaa\/nl+Jb5XQ=",
+      "hash": "sha256-2xTKq1sahx3XDgdGJa\/MMVzaKhy9aJOnULPFQtAmnSk=",
       "url": "_framework\/_bin\/BlazorApp4.Client.dll"
     },
     {
@@ -521,7 +521,7 @@
       "url": "_framework\/_bin\/Microsoft.JSInterop.WebAssembly.dll"
     },
     {
-      "hash": "sha256-oUUrgepvRDabiMJCg5vcF9v0nMQya829mvEqbgOrcog=",
+      "hash": "sha256-C0XB1zu4jWHMUsrrcS5RCMj0f0c5dSROO5XzZ4KEyBQ=",
       "url": "_framework\/_bin\/BlazorApp4.Client.pdb"
     },
     {
@@ -549,9 +549,9 @@
       "url": "_framework\/blazor.webassembly.js"
     },
     {
-      "hash": "sha256-WW39TAepGxERm\/SD7ROfKH8KSI7lAQRMM3xnQ9TrYO8=",
+      "hash": "sha256-emHCQ82OHlnXZNNzWlkaTDh6KF6cRToKncA+94kHLHA=",
       "url": "_framework\/blazor.boot.json"
     }
   ],
-  "version": "FN3czZ8n"
+  "version": "yH69Dir+"
 };
