@@ -42,13 +42,18 @@ namespace BlazorApp4.Server.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Makina")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("MakinaGrubu")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Operator")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("RecordTime")
+                        .HasColumnType("datetime2");
 
                     b.Property<int>("Status")
                         .HasColumnType("int");

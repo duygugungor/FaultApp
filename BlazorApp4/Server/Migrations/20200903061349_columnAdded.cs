@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace BlazorApp4.Server.Migrations
 {
-    public partial class addedStatus : Migration
+    public partial class columnAdded : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -13,9 +13,10 @@ namespace BlazorApp4.Server.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    MakinaGrubu = table.Column<string>(nullable: true),
-                    Makina = table.Column<string>(nullable: true),
+                    MakinaGrubu = table.Column<string>(nullable: false),
+                    Makina = table.Column<string>(nullable: false),
                     Operator = table.Column<string>(nullable: true),
+                    RecordTime = table.Column<DateTime>(nullable: false),
                     Description = table.Column<string>(nullable: true),
                     CreatedTime = table.Column<DateTime>(nullable: false),
                     FixedTime = table.Column<DateTime>(nullable: false),

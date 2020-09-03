@@ -17,9 +17,10 @@ namespace BlazorApp4.Shared.Models
         [Required()]
         public string Makina { get; set; }
         public string Operator { get; set; }
-        
-        //public DateTime Tarih { get; set; } = DateTime.Now;
+        [Required()]
+        public DateTime RecordTime { get; set; } = DateTime.Now;
         public string Description { get; set; }
+        [Required()]
         public DateTime CreatedTime { get; set; } = DateTime.Now;
 
         [Required()]
